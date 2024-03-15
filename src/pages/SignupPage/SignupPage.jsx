@@ -91,10 +91,10 @@ export default function SignUpPage({handleSignUpOrLogin}) {
 
 
   return (
-    <Grid className="signUpPage" textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
-      <Grid.Column style={{ maxWidth: 650 }}>
+    <Grid className="signUpPage" textAlign="center" style={{ height: "100vh" }} verticalAlign="middle" >
+      <Grid.Column style={{ maxWidth: 650, backgroundColor: 'rgb(255, 196, 56)' }}>
           <h1>Sign Up</h1>
-        <Header as="h1" color="mustard" textAlign="center">
+        <Header as="h1" textAlign="center">
         </Header>
         <Form autoComplete="off" onSubmit={handleSubmit}>
           <Segment stacked>
@@ -148,8 +148,8 @@ export default function SignUpPage({handleSignUpOrLogin}) {
               onChange={handleChange}
               required
             />
-            <Button type="submit" className="btn">
-              Signup
+            <Button type="submit" className="btn" color="black">
+              CREATE PROFILE
             </Button>
           </Segment>
           {error ? <ErrorMessage error={error} /> : null}
