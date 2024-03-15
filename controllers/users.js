@@ -43,7 +43,7 @@ async function signup(req, res) {
   if(!req.file) return res.status(400).json({error: 'Please Submit a Photo'})
 
   // create the path on our s3 bucket of where we'll store our image.
-  const filePath = `pupstagram/${uuidv4()}-${req.file.originalname}`
+  const filePath = `hqspec/${uuidv4()}-${req.file.originalname}`
   const params = {Bucket: BUCKET_NAME, Key: filePath, Body: req.file.buffer}; // req.file.buffer is the actually image
   // s3.upload(parmas) is the express request to aws
   s3.upload(params, async function(err, data){ // function(err, data) this is the response from aws
