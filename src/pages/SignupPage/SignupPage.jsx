@@ -65,7 +65,7 @@ export default function SignUpPage({handleSignUpOrLogin}) {
     try {
     // 2. Remove the headers on the fetch request (the browser) (in utils/signup)
     // will automatically apply the correct multipart/formdata header
-      await userService.signup(formData); // userService is imported at top of file
+      await userService.signup(state); // userService is imported at top of file
       handleSignUpOrLogin();// this is destructred in the props
       // and it grabs the token from localstorage and sets the 
       // new user in state!

@@ -7,7 +7,8 @@ function signup(user) {
     method: 'POST',
      // If you are sending a file/photo over
     // what do datatype do you need to change this too?
-    body: user // user is the formData from signupPage, 
+    headers: new Headers({'Content-Type': 'application/json'}),
+    body: JSON.stringify(user)
     // since we are sending a photo/formData no need to jsonify it
   })
   .then(res => {

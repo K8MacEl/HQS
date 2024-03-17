@@ -37,25 +37,25 @@ async function profile(req, res){
 }
 
 async function signup(req, res) {
-  console.log(req.body, req.file)
+  console.log(req.body)
 
   // check to make sure a file was uploaded
-  if(!req.file) return res.status(400).json({error: 'Please Submit a Photo'})
+  // if(!req.file) return res.status(400).json({error: 'Please Submit a Photo'})
 
   // create the path on our s3 bucket of where we'll store our image.
-  const filePath = `hqspec/${uuidv4()}-${req.file.originalname}`
-  const params = {Bucket: BUCKET_NAME, Key: filePath, Body: req.file.buffer}; // req.file.buffer is the actually image
+  // const filePath = `hqspec/${uuidv4()}-${req.file.originalname}`
+  // const params = {Bucket: BUCKET_NAME, Key: filePath, Body: req.file.buffer}; // req.file.buffer is the actually image
   // s3.upload(parmas) is the express request to aws
-  s3.upload(params, async function(err, data){ // function(err, data) this is the response from aws
-    if(err){
-      console.log('===============================')
-      console.log(err, ' <- error from aws, Probably telling you your keys arent correct')
-      console.log('===============================')
-      res.status(400).json({error: 'error from aws, check your terminal'})
-    }
+  // s3.upload(params, async function(err, data){ // function(err, data) this is the response from aws
+  //   if(err){
+  //     console.log('===============================')
+  //     console.log(err, ' <- error from aws, Probably telling you your keys arent correct')
+  //     console.log('===============================')
+  //     res.status(400).json({error: 'error from aws, check your terminal'})
+  //   }
 
-    const user = new User({...req.body, photoUrl: data.Location}); // data.Location is the url for your image on aws
-    try {
+  try {
+      const user = await User.create(req.body) // data.Location is the url for your image on aws
       await user.save(); // user model .pre('save') function is running which hashes the password
       const token = createJWT(user);
       res.json({ token }); // set('toJSON',) in user model is being called, and deleting the users password from the token
@@ -65,7 +65,7 @@ async function signup(req, res) {
     }
 
 
-  }) // end of s3.upload
+  // }) // end of s3.upload
 
 }
 
