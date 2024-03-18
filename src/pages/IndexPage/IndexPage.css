@@ -1,0 +1,27 @@
+
+
+.yellow_top_page {
+    background-color: rgb(255, 196, 56);
+}
+
+.hqspec_logo {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+
+.title {
+    text-align: center;
+    font-size: xx-large;
+}
+
+
+nav > .login_button, .signup_button{
+    display: grid;
+    justify-content: center; /* This centers the buttons horizontally in the nav container */
+    align-items: center;
+    gap: 20px;
+    width: 100%; /* Use the full width to allow centering */
+    margin-top: 20px; /* Adjust as needed for spacing */
+}

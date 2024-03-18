@@ -1,9 +1,10 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 import { useState } from 'react'
 import "./App.css";
 
 import SignUpPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import IndexPage from "./pages/IndexPage/IndexPage";
 // ANY component that is rendered by a route, should be stored in the 
 // pages folder. Every page is like an app component
 import userService from "./utils/userService";
@@ -20,7 +21,7 @@ function App() {
   }
   return (
     <Routes>
-      <Route path="/" element={<h1>HQSpec Home Page</h1>} />
+      <Route path="/" element={<IndexPage />} />
       <Route path="/login" element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
       <Route path='/signup' element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
  
