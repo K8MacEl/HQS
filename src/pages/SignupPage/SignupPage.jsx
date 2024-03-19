@@ -3,12 +3,12 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import "../SignupPage/SignUpPage.css";
 
 import {
-	Button,
-	Form,
-	Grid,
-	Header,
-	Image,
-	Segment,
+  Button,
+  Form,
+  Grid,
+  Header,
+  Image,
+  Segment,
   FormTextArea,
   FormSelect,
   FormRadio,
@@ -16,7 +16,7 @@ import {
   FormGroup,
   FormCheckbox,
   FormButton,
-  } from "semantic-ui-react";
+} from "semantic-ui-react";
 
 // this hook allows us to navigate programatically
 import { useNavigate } from 'react-router-dom'
@@ -28,7 +28,7 @@ const options = [
 ]
 
 
-export default function SignUpPage({handleSignUpOrLogin}) {
+export default function SignUpPage({ handleSignUpOrLogin }) {
 
   const [error, setError] = useState('')
 
@@ -44,14 +44,25 @@ export default function SignUpPage({handleSignUpOrLogin}) {
   // initialize the navigate hook from react-router-dom
   const navigate = useNavigate()
 
-  function handleChange(e) {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value,
-    });
+  function handleChange(e, target) {
+    console.log(e.target)
+    console.log(e.target.value)
+    if (target){
+      setState({
+        ...state,
+        [target.name]: target.value,
+      });
+    }else{
+      setState({
+        ...state,
+        [e.target.name]: e.target.value,
+      });
+    }
+
+
   }
 
-  async function handleSubmit(e){
+  async function handleSubmit(e) {
     e.preventDefault();
 
     // ===========================================
@@ -60,20 +71,21 @@ export default function SignUpPage({handleSignUpOrLogin}) {
     // of request. 
     // Multipart/formData request 
 
- 
+
 
     try {
-    // 2. Remove the headers on the fetch request (the browser) (in utils/signup)
-    // will automatically apply the correct multipart/formdata header
+      // 2. Remove the headers on the fetch request (the browser) (in utils/signup)
+      // will automatically apply the correct multipart/formdata header
       await userService.signup(state); // userService is imported at top of file
       handleSignUpOrLogin();// this is destructred in the props
       // and it grabs the token from localstorage and sets the 
       // new user in state!
 
       // Change the view to the home page!
-      navigate('/');// navigate acceps a path defined by a route!
 
-    } catch(err){
+      navigate(`/${state.role}`);// navigate acceps a path defined by a route!
+
+    } catch (err) {
       console.log(err.message, " <- this comes from tht throw in utils/signup")
       setError('Check Your Terminal for errors!!!!!!!!!')
     }
@@ -81,49 +93,40 @@ export default function SignUpPage({handleSignUpOrLogin}) {
 
 
 
-     // ===========================================
+    // ===========================================
   }
 
-  function handleFileInput(e){
-	console.log(e.target.files)
-	setPhoto(e.target.files[0])
+  function handleFileInput(e) {
+    console.log(e.target.files)
+    setPhoto(e.target.files[0])
   }
 
-
+console.log(state, "this is state")
   return (
     <Grid className="signUpPage" textAlign="center" style={{ height: "100vh" }} verticalAlign="middle" >
       <Grid.Column style={{ maxWidth: 650, backgroundColor: 'rgb(255, 196, 56)' }}>
-          <h1>Sign Up</h1>
+        <h1>Sign Up</h1>
         <Header as="h1" textAlign="center">
         </Header>
         <Form autoComplete="off" onSubmit={handleSubmit}>
           <Segment stacked>
             <Form.Input
-              fluid label='Username'
+              fluid label='First Name Last Name'
               name="username"
-              placeholder="username"
+              placeholder='First Name Last Name'
               value={state.username}
               onChange={handleChange}
               required
             />
-  
-            <Form.Input 
-              fluid label='First name'
-              name="firstName" 
-              placeholder='First name' 
-              required
+            <Form.Select
+              fluid
+              name='role'
+              label='Role'
+              options={options}
+              onChange={handleChange}
+              value={state.role}
+              placeholder='Role'
             />
-            <Form.Input 
-              fluid label='Last name'
-              name='lastName' 
-              placeholder='Last name' 
-              required/>
-          <Form.Select
-            fluid
-            label='Role'
-            options={options}
-            placeholder='Role'
-          />
             <Form.Input
               type="email"
               name="email"

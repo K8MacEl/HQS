@@ -23,8 +23,9 @@ function App() {
     <Routes>
       <Route path="/" element={<IndexPage />} />
       <Route path="/login" element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
-      <Route path='/signup' element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
- 
+      <Route path="/signup" element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
+      <Route path="/inspector" element={<h1>Inspector</h1>  } />
+      <Route path="/pha" element={<h1>PHA</h1>  } />
     </Routes>
   );
 }

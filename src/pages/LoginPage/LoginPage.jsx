@@ -35,7 +35,7 @@ export default function LoginPage({ handleSignUpOrLogin }) {
       // We always pass in an OBJECT as the data we want to send to the server
       await userService.login(state); // making the http request to the server
 
-      navigate("/");
+      navigate(`/${state.role}`);// navigate acceps a path defined by a route!
       handleSignUpOrLogin(); // this comes from app.js as a prop, which it gets the token from localstorage and stores the decoded
       // token in the app.js state
     } catch (err) {
@@ -55,7 +55,7 @@ export default function LoginPage({ handleSignUpOrLogin }) {
     <Grid textAlign="center" verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450, backgroundColor: 'rgb(255, 196, 56)'  }}>
           <Image src="https://i.imgur.com/CKEt2Kqm.png"/> 
-        <Header as="h2" color="purple" textAlign="center">
+        <Header>
           <h2>Login</h2>
         </Header>
         <Form autoComplete="off" onSubmit={handleSubmit}>
