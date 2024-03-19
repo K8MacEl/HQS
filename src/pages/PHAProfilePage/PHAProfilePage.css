@@ -1,0 +1,27 @@
+
+.Profile_Container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 100px 150px;
+    grid-template-rows: 50px 50px 50px; 
+    gap: 5px 5px;
+    background-color: lightgray;
+    width: 252px;
+    margin: 0;
+    text-align: center;
+    padding: 5px;
+}
+.PHA_Profile_Info{
+    height: 100%; /* Full height */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.PHA_User_Name_Title, .PHA_User_Name_Input, .PHA_User_Email_Title, .PHA_User_Email_Input , .PHA_User_Email_Input, .PHA_User_Email_Input,.PHA_User_Role_Title,.PHA_User_Role_Input {
+    font-size: larger;
+    background-color: white;
+}
+
+
