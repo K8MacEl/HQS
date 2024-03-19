@@ -52,11 +52,11 @@ export default function SignUpPage({ handleSignUpOrLogin }) {
         ...state,
         [target.name]: target.value,
       });
-    }else{
-      setState({
-        ...state,
-        [e.target.name]: e.target.value,
-      });
+     }else{
+       setState({
+         ...state,
+         [e.target.name]: e.target.value,
+       });
     }
 
 

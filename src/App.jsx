@@ -8,16 +8,19 @@ import IndexPage from "./pages/IndexPage/IndexPage";
 // ANY component that is rendered by a route, should be stored in the 
 // pages folder. Every page is like an app component
 import userService from "./utils/userService";
+import { useNavigate } from 'react-router-dom'
 
 function App() {
   // the userService.getUser() when the page loads it goes into localstorage and looks for a jwt
   // token, decodes and sets it in state
   const [user, setUser] = useState(userService.getUser())
-
+  const navigate = useNavigate()
   function handleSignUpOrLogin(){
     // we call this function after userService.login(), or userService.signup()
     // in order to get the token sent back from express and store the decoded token in the state
     setUser(userService.getUser())
+    navigate(`/${user.role}`);//<---just added this here but no go
+
   }
   return (
     <Routes>
