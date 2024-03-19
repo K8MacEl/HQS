@@ -6,6 +6,8 @@ import SignUpPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import IndexPage from "./pages/IndexPage/IndexPage";
 import PHAProfilePage from "./pages/PHAProfilePage/PHAProfilePage";
+import InspectorProfilePage from "./pages/InspectorProfilePage/InspectorProfilePage";
+
 // ANY component that is rendered by a route, should be stored in the 
 // pages folder. Every page is like an app component
 import userService from "./utils/userService";
@@ -21,14 +23,13 @@ function App() {
     // in order to get the token sent back from express and store the decoded token in the state
     setUser(userService.getUser())
     navigate(`/${user.role}`);//<---just added this here but no go
-
   }
   return (
     <Routes>
       <Route path="/" element={<IndexPage />} />
       <Route path="/login" element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
       <Route path="/signup" element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
-      <Route path="/inspector" element={<h1>Inspector</h1>  } />
+      <Route path="/inspector" element={<InspectorProfilePage /> } />
       <Route path="/pha" element={<PHAProfilePage/>  } />
     </Routes>
   );

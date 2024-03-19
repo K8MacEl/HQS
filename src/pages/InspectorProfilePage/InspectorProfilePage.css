@@ -1,0 +1,37 @@
+
+.Profile_Container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 100px 150px;
+    grid-template-rows: 50px 50px 50px; 
+    gap: 5px 5px;
+    background-color: lightgray;
+    width: 252px;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+.Inspector_Profile_Info{
+    height: 100%; /* Full height */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.Inspector_User_Name_Title, .Inspector_User_Name_Input, .Inspector_User_Email_Title, .Inspector_User_Email_Input , .Inspector_User_Email_Input, .Inspector_User_Email_Input,.Inspector_User_Role_Title,.Inspector_User_Role_Input {
+    font-size: larger;
+    background-color: white;
+}
+
+.New_Inspections_Nav {
+    background-color: black;
+    margin-top: -70px;
+}
+
+.show_inspection_button {
+    height: 30vh;
+    display: flex; /* This turns on flexbox for this container */
+    justify-content: center; /* This spreads out the child elements evenly */
+    align-items: center;
+}
