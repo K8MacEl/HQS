@@ -43,7 +43,7 @@
     min-width: 200px; /* Minimum width for each box, adjust as necessary */
     box-sizing: border-box; /* Ensures padding and border are included in width */
     height: 16vh;
-    width: 30vh;
+    width: 33vh;
     padding-top: 1rem;
     background: black;
     color: white;
