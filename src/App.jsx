@@ -5,6 +5,7 @@ import "./App.css";
 import SignUpPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import IndexPage from "./pages/IndexPage/IndexPage";
+import PHAProfilePage from "./pages/PHAProfilePage/PHAProfilePage";
 // ANY component that is rendered by a route, should be stored in the 
 // pages folder. Every page is like an app component
 import userService from "./utils/userService";
@@ -28,7 +29,7 @@ function App() {
       <Route path="/login" element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
       <Route path="/signup" element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
       <Route path="/inspector" element={<h1>Inspector</h1>  } />
-      <Route path="/pha" element={<h1>PHA</h1>  } />
+      <Route path="/pha" element={<PHAProfilePage/>  } />
     </Routes>
   );
 }
