@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import IndexPage from "./pages/IndexPage/IndexPage";
 import PHAProfilePage from "./pages/PHAProfilePage/PHAProfilePage";
 import InspectorProfilePage from "./pages/InspectorProfilePage/InspectorProfilePage";
+import NewPropertyForm from "./pages/NewPropertyForm/NewPropertyForm";
 
 // ANY component that is rendered by a route, should be stored in the 
 // pages folder. Every page is like an app component
@@ -31,6 +32,7 @@ function App() {
       <Route path="/signup" element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
       <Route path="/inspector" element={<InspectorProfilePage /> } />
       <Route path="/pha" element={<PHAProfilePage/>  } />
+      <Route path="/newproperty" element={<NewPropertyForm />} />
     </Routes>
   );
 }

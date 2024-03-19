@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
-const PostModel = require('../models/post')
+const PropertyModel = require('../models/property')
 
 const { v4: uuidv4 } = require('uuid');
 // uuid, helps generate our unique ids
