@@ -2,6 +2,7 @@
 
 .yellow_top_page {
     background-color: rgb(255, 196, 56);
+    margin-bottom: 5rem;
 }
 
 .hqspec_logo {
@@ -16,12 +17,39 @@
     font-size: xx-large;
 }
 
-
-nav > .login_button, .signup_button{
-    display: grid;
-    justify-content: center; /* This centers the buttons horizontally in the nav container */
+.buttons {
+    display: flex; /* This turns on flexbox for this container */
+    justify-content: center; /* This spreads out the child elements evenly */
     align-items: center;
-    gap: 20px;
-    width: 100%; /* Use the full width to allow centering */
-    margin-top: 20px; /* Adjust as needed for spacing */
 }
+
+.login_button, .signup_button{
+    margin: 10px; /* Adds some space around each box */
+    padding: 20px; /* Adds some internal space within each box */  
+}
+.section-container {
+    background-color: white;
+    margin-top: 10px;
+    display: flex; /* This turns on flexbox for this container */
+    justify-content: space-around; /* This spreads out the child elements evenly */
+    align-items: center; /* This vertically centers the items */
+    flex-wrap: wrap; /* Allows items to wrap to the next line if not enough space */
+    height: 50vh;
+}
+.textblock_one, .textblock_two, .textblock_three {
+    flex: 1; /* This allows the boxes to grow and fill the space */
+    margin: 10px; /* Adds some space around each box */
+    padding: 20px; /* Adds some internal space within each box */
+    min-width: 200px; /* Minimum width for each box, adjust as necessary */
+    box-sizing: border-box; /* Ensures padding and border are included in width */
+    height: 16vh;
+    width: 30vh;
+    padding-top: 1rem;
+    background: black;
+    color: white;
+     margin: 10px; 
+    border-radius: 10px;
+    font-size: large; 
+    text-align: center;
+}
+
