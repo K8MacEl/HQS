@@ -38,20 +38,69 @@ export default function PHAProfilePage() {
                             PHA
                         </div>
                     </form>
-            </section >
-
-            <ul>TO DOS:
-
-                <li>
-                    role: PHA
-                </li>
-                <li>EDIT button</li>
-                <li>DELETE BUTTON</li>
-                <li>CREATE NEW PROPERTY BUTTON</li>
-                <li>VIEW MY PROPERTIES BUTTON</li>
-
-            </ul>
-        </div >
+                </section >
+                <nav className="buttons">
+                    <div className="edit_button">
+                        <Link to="/login">
+                            <button style={{
+                                height: "8vh",
+                                width: "15vh",
+                                background: "black",
+                                color: "white",
+                                margin: "10px",
+                                borderRadius: "10px"
+                            }}>
+                                EDIT PROFILE
+                            </button>
+                        </Link>
+                    </div>
+                    <div className="delete_button">
+                        <Link to="/signup">
+                            <button style={{
+                                height: "8vh",
+                                width: "15vh",
+                                background: "black",
+                                color: "white",
+                                borderRadius: "10px"
+                            }}>
+                                DELETE PROFILE
+                            </button>
+                        </Link>
+                    </div>
+                </nav>
+            </div >
+            <div className="PHA_Property_Nav">
+                <div className="new_property_button">
+                    <Link to="/login">
+                        <button style={{
+                            height: "8vh",
+                            width: "50vh",
+                            background: "rgb(255, 196, 56)",
+                            color: "black",
+                            margin: "10px",
+                            borderRadius: "10px",
+                            fontSize: "large"
+                        }}>
+                            CREATE NEW PROPERTY BUTTON
+                        </button>
+                    </Link>
+                </div>
+                <div className="show_properties_button">
+                    <Link to="/signup">
+                        <button style={{
+                            height: "8vh",
+                            width: "50vh",
+                            background: "rgb(255, 196, 56)",
+                            color: "black",
+                            margin: "10px",
+                            borderRadius: "10px",
+                            fontSize: "large",
+                        }}>
+                            VIEW MY PROPERTIES BUTTON
+                        </button>
+                    </Link>
+                </div>
+            </div>
         </>
     )
 }

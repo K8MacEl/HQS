@@ -9,7 +9,7 @@
     width: 252px;
     margin: 0;
     text-align: center;
-    padding: 5px;
+    margin-bottom: auto;
 }
 .PHA_Profile_Info{
     height: 100%; /* Full height */
@@ -24,4 +24,13 @@
     background-color: white;
 }
 
+.PHA_Property_Nav {
+    background-color: black;
+    margin-top: -70px;
+}
 
+.new_property_button, .show_properties_button {
+    display: flex; /* This turns on flexbox for this container */
+    justify-content: center; /* This spreads out the child elements evenly */
+    align-items: center;
+}
