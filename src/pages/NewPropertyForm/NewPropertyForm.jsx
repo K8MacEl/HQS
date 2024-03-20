@@ -42,7 +42,7 @@ export default function NewPropertyForm() {
         try {
             await propertyService.create(propertyDetails);
             //i beleive i need a function comparable to handleSignUpOrLogin here??
-            navigate('/'); ///change this later to a literal but for now home page
+            navigate(`/${propertyDetails._id}`); ///change this later to a literal but for now home page
         } catch (err) {
             console.log(err.message, " <- this comes from the throw in utils/signup");
             setError('Check Your Terminal for errors!!!!!!!!');

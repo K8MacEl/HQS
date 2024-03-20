@@ -1,0 +1,60 @@
+
+.property_body{
+    background-color:  rgb( 255 196 56);
+
+}
+.property_information {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 250px 250px;
+    grid-template-rows: 50px 50px 50px 50px 50px; 
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding-bottom: 5rem;
+    padding-left: 20rem;
+
+}
+.property_box{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 250px 250px;
+    grid-template-rows: 50px 50px 50px 50px 50px; 
+    gap: 5px 5px;
+    height: 100%; /* Full height */
+    width: 100%;
+    margin: 0; /* Remove default margin */
+    border-color: rgb( 255 196 56); 
+    border: 5rem;
+    border-radius: 10px;
+}
+
+.property_address_title, .property_address_input, .voucher_holder_title, .voucher_holder_input , .tenant_id_title,.tenant_id_input, .property_owner_title, .property_owner_input, .census_title,.census_input {
+    font-size: larger;
+    background-color: white;
+    text-align: center;
+    display: flex; /* This turns on flexbox for this container */
+    justify-content: center; /* This spreads out the child elements evenly */
+    align-items: center;
+}
+
+.action_buttons {
+    background-color: black;
+    height: 100%;
+    display: flex; /* This turns on flexbox for this container */
+    justify-content: center; /* This spreads out the child elements evenly */
+    align-items: center;
+    padding-top: 6rem;
+    justify-content: space-around;
+}
+
+.inspections_embedded {
+ background-color: black;
+ color: white;
+ font-size: x-large; 
+ text-align: center;
+ padding-top: 5rem;
+ padding-bottom: 5rem;
+}
+
+

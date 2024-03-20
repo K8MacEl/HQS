@@ -8,7 +8,7 @@ import IndexPage from "./pages/IndexPage/IndexPage";
 import PHAProfilePage from "./pages/PHAProfilePage/PHAProfilePage";
 import InspectorProfilePage from "./pages/InspectorProfilePage/InspectorProfilePage";
 import NewPropertyForm from "./pages/NewPropertyForm/NewPropertyForm";
-
+import PropertyShowPage from "./pages/PropertyShowPage/PropertyShowPage";
 // ANY component that is rendered by a route, should be stored in the 
 // pages folder. Every page is like an app component
 import userService from "./utils/userService";
@@ -34,7 +34,7 @@ function App() {
       <Route path="/inspector" element={<InspectorProfilePage /> } />
       <Route path="/pha" element={<PHAProfilePage user={user}/> } />
       <Route path="/newproperty" element={<NewPropertyForm />} />
-      <Route path="/propertyShow" element={<h1>MAKE PROPERTY SHOW PAGE AND CHANGE TO DIRECT TO ID </h1>} />
+      <Route path="/propertyshow" element={<PropertyShowPage />} />
     </Routes>
   );
 }

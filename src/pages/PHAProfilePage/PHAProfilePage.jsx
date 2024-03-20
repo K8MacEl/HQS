@@ -3,44 +3,11 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import "./PHAProfilePage.css"
 import tokenService from "../../utils/tokenService";
+import NewPropertyForm from "../NewPropertyForm/NewPropertyForm";
 
 
 
 export default function PHAProfilePage({user}) {
-
-
-
-    // async function fetchPHAProfile() {
-
-    //     try {
-    //         //this is going to express to get the profile 
-    //         const response = fetch("/api/users/profile", {
-    //             method: "GET",
-    //             headers: {
-    //                 'Content-Type' : 'application/json',
-    //                 //convention for sending jwts in a fetch request
-    //                 Authorization: "Bearer " + tokenService.getToken(),
-    //                 // we send the token, so the server knows who is making the request
-    //             },
-    //         });
-    //         if (!response.ok) {
-    //             throw new Error('We have a problem in PHAProfilePage FetchPHAProfile function');
-    //         }
-    //         const userData = await response.json();
-    //         console.log(userData, "--userData")
-    //         setUser({ 
-    //             name: userData.name, 
-    //             email: userData.email, 
-    //             role: userData.role})
-    //     } catch (error) {
-    //         console.error("There was an error fetching the user's profile", error);
-    //     }
-    // }
-
-
-    // useEffect(() => {
-    //     fetchPHAProfile()
-    // }, []);
 
     console.log(user, "<--this is user in PHA profile page")
 
