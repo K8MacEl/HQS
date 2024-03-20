@@ -6,6 +6,7 @@ const propertySchema = mongoose.Schema({
   unitNumber: String,
   city: String,
   state: String,
+  zip: Number,
   voucherHolder: String,
   tenantIdNumber: String,
   // inspections: [inspectionSchema],

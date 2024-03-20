@@ -21,7 +21,7 @@
     align-items: center; /* Center vertically */
 }
 
-.Property_Address_Title, .Property_Address_Input, .Voucher_Holder_Title, .Voucher_Holder_Input , .Tenant_Id_Title,.Tenant_Id_Input, .Property_Owner_Title, .Property_Owner_Input,.Family_Name_Title,.Family_Name_Input,.Census_Track_Title,.Census_Track_Input {
+ .Property_Address, .Property_Number_Title, .Property_Number_Input, .Property_Street_Title, .Property_Street_Input, .Property_City_Title, .Property_City_Input, .Property_State_Title, .Property_State_Input, .Property_Zip_Title, .Property_Zip_Input,.Voucher_Holder_Title, .Voucher_Holder_Input , .Tenant_Id_Title,.Tenant_Id_Input, .Property_Owner_Title, .Property_Owner_Input,.Family_Name_Title,.Family_Name_Input,.Census_Track_Title,.Census_Track_Input {
     font-size: larger;
     background-color: white;
 }
