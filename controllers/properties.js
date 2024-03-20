@@ -1,4 +1,5 @@
 const PropertyModel = require("../models/property");
+const UserModel = require("../models/user");
 
 
 
@@ -15,14 +16,25 @@ const s3 = new S3();
 
 const BUCKET_NAME = process.env.S3_BUCKET
 
+async function create(req, res) {
+  //to find the property!
+  console.log('====================================')
+  console.log(req.body, "< ---- req.body")
+  console.log('====================================')
+  try {
+      const user = await UserModel.findOne({userId: req.user._id})
+      req.body.propertyUser = user._id
+      //req.params.id comes from the http request from the projects show page from the routes/projects route
+      const propertyDoc = await PropertyModel.create(req.body);
+      console.log(projectDoc)
+      res.redirect(`/properties/${propertyDoc._id}`)
 
-function create(req, res) {
-  console.log(req.file, req.body, req.user)
-
-  //build out the rest of this function to send over mongo
- 
-  res.json({data: 'Hitting the create route!'})
+  } catch (err) {
+      console.log(err);
+      res.send(err);
+  }
 }
+ 
 
 async function index(req, res) {
   try {
@@ -32,6 +44,6 @@ async function index(req, res) {
     const properties = await PropertyModel.find({}).populate("user").exec();
     res.status(200).json({ posts });
   } catch (err) {
-    res.json({error: err})
+    res.json({ error: err })
   }
 }

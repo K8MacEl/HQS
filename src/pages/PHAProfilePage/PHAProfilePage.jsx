@@ -80,25 +80,11 @@ export default function PHAProfilePage({user}) {
                     </form>
                 </section >
                 <nav className="buttons">
-                    <div className="edit_button">
-                        <Link to="/login">
-                            <button style={{
-                                height: "8vh",
-                                width: "15vh",
-                                background: "black",
-                                color: "white",
-                                margin: "10px",
-                                borderRadius: "10px"
-                            }}>
-                                EDIT PROFILE NOT FUNCTIONAL YET!
-                            </button>
-                        </Link>
-                    </div>
                     <div className="delete_button">
                         <Link to="/signup">
                             <button style={{
                                 height: "8vh",
-                                width: "15vh",
+                                width: "25vh",
                                 background: "black",
                                 color: "white",
                                 borderRadius: "10px"
@@ -126,19 +112,15 @@ export default function PHAProfilePage({user}) {
                     </Link>
                 </div>
                 <div className="show_properties_button">
-                    <Link to="/propertyIndex">
-                        <button style={{
+                        <h2 style={{
                             height: "8vh",
                             width: "50vh",
                             background: "rgb(255, 196, 56)",
                             color: "black",
                             margin: "10px",
                             borderRadius: "10px",
-                            fontSize: "large",
-                        }}>
-                            VIEW MY PROPERTIES BUTTON NOT FUNCTIONAL YET!
-                        </button>
-                    </Link>
+                            fontSize: "large"
+                        }}>MY PROPERTIES SHOW BELOW</h2>                 
                 </div>
             </div>
         </>

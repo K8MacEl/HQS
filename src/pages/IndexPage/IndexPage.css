@@ -42,7 +42,7 @@
     padding: 20px; /* Adds some internal space within each box */
     min-width: 200px; /* Minimum width for each box, adjust as necessary */
     box-sizing: border-box; /* Ensures padding and border are included in width */
-    height: 16vh;
+    height: 18vh;
     width: 33vh;
     padding-top: 1rem;
     background: black;
