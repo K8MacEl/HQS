@@ -6,45 +6,41 @@ import tokenService from "../../utils/tokenService";
 
 
 
-export default function PHAProfilePage() {
-    const [user, setUser] = useState({
-        //set the state and determine the information to pull from the userSchema
-        name: '',
-        email: '',
-        role: '',
-    });
+export default function PHAProfilePage({user}) {
 
 
-    async function fetchPHAProfile() {
 
-        try {
-            //this is going to express to get the profile 
-            const response = fetch("/api/users/profile", {
-                method: "GET",
-                headers: {
-                    'Content-Type' : 'application/json',
-                    //convention for sending jwts in a fetch request
-                    Authorization: "Bearer " + tokenService.getToken(),
-                    // we send the token, so the server knows who is making the request
-                },
-            });
-            if (!response.ok) {
-                throw new Error('We have a problem in PHAProfilePage FetchPHAProfile function');
-            }
-            const userData = await response.json();
-            setUser({ 
-                name: userData.name, 
-                email: userData.email, 
-                role: userData.role})
-        } catch (error) {
-            console.error("There was an error fetching the user's profile", error);
-        }
-    }
+    // async function fetchPHAProfile() {
+
+    //     try {
+    //         //this is going to express to get the profile 
+    //         const response = fetch("/api/users/profile", {
+    //             method: "GET",
+    //             headers: {
+    //                 'Content-Type' : 'application/json',
+    //                 //convention for sending jwts in a fetch request
+    //                 Authorization: "Bearer " + tokenService.getToken(),
+    //                 // we send the token, so the server knows who is making the request
+    //             },
+    //         });
+    //         if (!response.ok) {
+    //             throw new Error('We have a problem in PHAProfilePage FetchPHAProfile function');
+    //         }
+    //         const userData = await response.json();
+    //         console.log(userData, "--userData")
+    //         setUser({ 
+    //             name: userData.name, 
+    //             email: userData.email, 
+    //             role: userData.role})
+    //     } catch (error) {
+    //         console.error("There was an error fetching the user's profile", error);
+    //     }
+    // }
 
 
-    useEffect(() => {
-        fetchPHAProfile()
-    }, []);
+    // useEffect(() => {
+    //     fetchPHAProfile()
+    // }, []);
 
     console.log(user, "<--this is user in PHA profile page")
 
@@ -67,7 +63,7 @@ export default function PHAProfilePage() {
                             Name:
                         </div>
                         <div className="PHA_User_Name_Input">
-                            {user.name}
+                            {user.username}
                         </div>
                         <div className="PHA_User_Email_Title">
                             Email:
@@ -94,7 +90,7 @@ export default function PHAProfilePage() {
                                 margin: "10px",
                                 borderRadius: "10px"
                             }}>
-                                EDIT PROFILE
+                                EDIT PROFILE NOT FUNCTIONAL YET!
                             </button>
                         </Link>
                     </div>
@@ -107,7 +103,7 @@ export default function PHAProfilePage() {
                                 color: "white",
                                 borderRadius: "10px"
                             }}>
-                                DELETE PROFILE
+                                DELETE PROFILE NOT FUNCTIONAL YET!
                             </button>
                         </Link>
                     </div>
@@ -140,7 +136,7 @@ export default function PHAProfilePage() {
                             borderRadius: "10px",
                             fontSize: "large",
                         }}>
-                            VIEW MY PROPERTIES BUTTON
+                            VIEW MY PROPERTIES BUTTON NOT FUNCTIONAL YET!
                         </button>
                     </Link>
                 </div>

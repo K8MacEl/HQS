@@ -11,7 +11,7 @@ import {
     Segment,
     Dropdown,
 } from "semantic-ui-react";
-import userService from "../../utils/userService";
+import propertyService from "../../utils/propertyService"
 
 export default function NewPropertyForm() {
     const [error, setError] = useState('');
@@ -30,30 +30,19 @@ export default function NewPropertyForm() {
     });
     const navigate = useNavigate();
 
-    function handleChange(e, target) {
-        if (target) {
-            setPropertyDetails({
-                ...propertyDetails,
-                [target.name]: target.value,
-            });
-        } else {
-            setPropertyDetails({
-                ...propertyDetails,
-                [e.target.name]: e.target.value,
-            });
-        }
-    }
-
-    function handleFileInput(e) {
-        console.log(e.target.files);
-        setPhoto(e.target.files[0]);
-    }
+    function handleChange(e) {
+        setPropertyDetails({
+          ...propertyDetails,
+          [e.target.name]: e.target.value,
+        });
+      }
 
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            await userService.create(propertyDetails);
-            navigate(`/${propertyDetails.propertyId}`);
+            await propertyService.create(propertyDetails);
+            //i beleive i need a function comparable to handleSignUpOrLogin here??
+            navigate('/'); ///change this later to a literal but for now home page
         } catch (err) {
             console.log(err.message, " <- this comes from the throw in utils/signup");
             setError('Check Your Terminal for errors!!!!!!!!');
@@ -65,7 +54,7 @@ export default function NewPropertyForm() {
             <Grid.Column style={{ 
                         maxWidth: 650, 
                         backgroundColor: 'rgb(255, 196, 56)' }}>
-                    <h1>NEW PROPERTY</h1>
+                    <h1>CREATE NEW PROPERTY</h1>
                 <Form autoComplete="off" onSubmit={handleSubmit}>
                 <Segment stacked>
                     <Form.Input
@@ -83,6 +72,12 @@ export default function NewPropertyForm() {
                     value={propertyDetails.streetName}
                     onChange={handleChange}
                     required
+                    />
+                    <Form.Input
+                    name="unitNumber"
+                    placeholder="Unit Number"
+                    value={propertyDetails.unitNumber}
+                    onChange={handleChange}
                     />
                      <Form.Input
                     name="city"

@@ -18,6 +18,8 @@ const BUCKET_NAME = process.env.S3_BUCKET
 
 function create(req, res) {
   console.log(req.file, req.body, req.user)
+
+  //build out the rest of this function to send over mongo
  
   res.json({data: 'Hitting the create route!'})
 }

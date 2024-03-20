@@ -25,14 +25,16 @@ function App() {
     setUser(userService.getUser())
     navigate(`/${user.role}`);//<---just added this here but no go
   }
+  console.log("user", user)
   return (
     <Routes>
       <Route path="/" element={<IndexPage />} />
       <Route path="/login" element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
       <Route path="/signup" element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
       <Route path="/inspector" element={<InspectorProfilePage /> } />
-      <Route path="/pha" element={<PHAProfilePage/>  } />
+      <Route path="/pha" element={<PHAProfilePage user={user}/> } />
       <Route path="/newproperty" element={<NewPropertyForm />} />
+      <Route path="/propertyShow" element={<h1>MAKE PROPERTY SHOW PAGE AND CHANGE TO DIRECT TO ID </h1>} />
     </Routes>
   );
 }
