@@ -26,7 +26,7 @@ async function create(req, res) {
       req.body.propertyUser = user._id
       //req.params.id comes from the http request from the projects show page from the routes/projects route
       const propertyDoc = await PropertyModel.create(req.body);
-      console.log(projectDoc)
+      console.log(propertyDoc)
       res.redirect(`/properties/${propertyDoc._id}`)
 
   } catch (err) {

@@ -11,8 +11,10 @@ async function create(propertyToSendToServer){
 		// so express needs to have multer setup on this endpoint!
 		const response = await fetch('/api/properties', {
 			method: 'POST',
-			body: propertyToSendToServer, 
+			body: JSON.stringify(propertyToSendToServer),
 			headers: {
+                'Content-Type': 'application/json',
+
 					// convention for sending jwts, tokenService is imported above
 					Authorization: "Bearer " + tokenService.getToken() // < this is how we get the token from localstorage 
 					//and and it to our api request
