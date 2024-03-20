@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import "../NewPropertyForm/NewPropertyForm.css";
-
 import {
     Button,
     Form,
@@ -10,138 +9,144 @@ import {
     Header,
     Image,
     Segment,
-    FormTextArea,
-    FormSelect,
-    FormRadio,
-    FormInput,
-    FormGroup,
-    FormCheckbox,
-    FormButton,
     Dropdown,
 } from "semantic-ui-react";
-
-
-
-
-
-// this hook allows us to navigate programatically
-import { useNavigate } from 'react-router-dom'
 import userService from "../../utils/userService";
 
 export default function NewPropertyForm() {
+    const [error, setError] = useState('');
+    const [photo, setPhoto] = useState(null); // will need to inspections-should this go here?
+    const [propertyDetails, setPropertyDetails] = useState({
+        streetNumber: '',
+        streetName: '',
+        unitNumber: '',
+        city: '',
+        stateProperty: '',
+        zip: '',
+        voucherHolder: '',
+        tenantIdNumber: '',
+        propertyOwner: '',
+        censusTrack: '',
+    });
+    const navigate = useNavigate();
+
+    function handleChange(e, target) {
+        if (target) {
+            setPropertyDetails({
+                ...propertyDetails,
+                [target.name]: target.value,
+            });
+        } else {
+            setPropertyDetails({
+                ...propertyDetails,
+                [e.target.name]: e.target.value,
+            });
+        }
+    }
+
+    function handleFileInput(e) {
+        console.log(e.target.files);
+        setPhoto(e.target.files[0]);
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        try {
+            await userService.create(propertyDetails);
+            navigate(`/${propertyDetails.propertyId}`);
+        } catch (err) {
+            console.log(err.message, " <- this comes from the throw in utils/signup");
+            setError('Check Your Terminal for errors!!!!!!!!');
+        }
+    }
+
     return (
-        <>
-            <div className="yellow_top_page">
-                <img className="hqspec_logo" src="https://i.imgur.com/CKEt2Kqm.png" alt="" />
-                <header className="title">
-                    <br />
-                    <h1 style={{
-                        fontSize: "8vh"
-                    }}>NEW PROPERTY</h1>
-                    <h2 style={{
-                        fontsize: "10vh"
-                    }}></h2>
-                </header>
-                <form>
-                    <nav className="New_Property_Section">
-                        <div className="New_Property_Container">
-                            <div
-                                className="Property_Number_Title">
-                                Street Number:
-                            </div>
-                            <div
-                                className="Property_Number_Input">
-                                ######
-                            </div>
-                            <div
-                                className="Property_Street_Title">
-                                Street Name:
-                            </div>
-                            <div
-                                className="Property_Street_Input">
-                                INPUT STREET
-                            </div>
-                            <div className="Property_City_Title">
-                                City:
-                            </div>
-                            <div
-                                className="Property_State_Input">
-                                INPUT CITY
-                            </div>
-                            <div className="Property_State_Title">
-                                Select State:
-                            </div>
-                            <div
-                                className="Property_City_Input">
-                                STATE DROPDOWN
-                            </div>
-                            <div className="Property_Zip_Title">
-                                Zip Code:
-                            </div>
-                            <div
-                                className="Property_Zip_Input">
-                                ZIP CODE:
-                            </div>
-                            <div
-                                className="Voucher_Holder_Title">
-                                Voucher Holder:
-                            </div>
-                            <div
-                                className="Voucher_Holder_Input">
-                                NEED INPUT FIELD HERE
-                            </div>
-                            <div
-                                className="Tenant_Id_Title">
-                                Tenant ID#:
-                            </div>
-                            <div
-                                className="Tenant_Id_Input">
-                                NEED INPUT FIELD HERE
-                            </div>
-                            <div
-                                className="Property_Owner_Title">
-                                Property Owner:
-                            </div>
-                            <div
-                                className="Property_Owner_Input">
-                                NEED INPUT FIELD HERE
-                            </div>
-                            <div
-                                className="Family_Name_Title">
-                                Name of Family:
-                            </div>
-                            <div
-                                className="Family_Name_Input">
-                                NEED INPUT FIELD HERE
-                            </div>
-                            <div
-                                className="Census_Track_Title">
-                                Neighborhood/Census Track:
-                            </div>
-                            <div
-                                className="Census_Track_Input">
-                                NEED INPUT FIELD HERE OR API
-                            </div>
-                        </div>
-                    </nav>
-                    <br></br>
-                    <div className="create_button">
-
-                        <button style={{
-                            height: "8vh",
-                            width: "15vh",
-                            background: "white",
-                            color: "black",
-                            margin: "10px",
-                            borderRadius: "10px"
-                        }}>
-                            CREATE
-                        </button>
-
-                    </div>
-                </form>
-            </div>
-        </>
+        <Grid className="New_Property_Container" textAlign="center" style={{ height: "100vh" }} verticalAlign="middle" >
+            <Grid.Column style={{ 
+                        maxWidth: 650, 
+                        backgroundColor: 'rgb(255, 196, 56)' }}>
+                    <h1>NEW PROPERTY</h1>
+                <Form autoComplete="off" onSubmit={handleSubmit}>
+                <Segment stacked>
+                    <Form.Input
+                    fluid label="Property Address"
+                    name="streetNumber"
+                    type="number"
+                    placeholder="Street Number"
+                    value={propertyDetails.streetNumber}
+                    onChange={handleChange}
+                    required
+                    />
+                    <Form.Input
+                    name="streetName"
+                    placeholder="Street Name"
+                    value={propertyDetails.streetName}
+                    onChange={handleChange}
+                    required
+                    />
+                     <Form.Input
+                    name="city"
+                    placeholder="City"
+                    value={propertyDetails.city}
+                    onChange={handleChange}
+                    required
+                    />
+                    <Form.Input
+                    name="state"
+                    placeholder="State"
+                    value={propertyDetails.state}
+                    onChange={handleChange}
+                    required
+                    />
+                    <Form.Input
+                    name="zip"
+                    type="number"
+                    placeholder="Zip Code"
+                    value={propertyDetails.zip}
+                    onChange={handleChange}
+                    required
+                    />
+                    <Form.Input
+                    fluid label="Voucher Holder"
+                    name="voucherHolder"
+                    placeholder="Voucher Holder"
+                    value={propertyDetails.voucherHolder}
+                    onChange={handleChange}
+                    required
+                    />
+                    <Form.Input
+                    fluid label="Tenant ID Number"
+                    name="tenantIdNumber"
+                    type="number"
+                    placeholder="Tenant Id Number"
+                    value={propertyDetails.tenantIdNumber}
+                    onChange={handleChange}
+                    required
+                    />
+                    <Form.Input
+                    fluid label="Property Owner"
+                    name="propertyOwner"
+                    placeholder="Property Owner"
+                    value={propertyDetails.propertyOwner}
+                    onChange={handleChange}
+                    required
+                    />
+                    <Form.Input
+                    fluid label="Neighborhood Census Track"
+                    name="censusTrack"
+                    type="number"
+                    placeholder="Census Track"
+                    value={propertyDetails.censusTrack}
+                    onChange={handleChange}
+                    required
+                    />
+                    <Button type="submit" className="btn" color="black">
+                    CREATE PROPERTY
+                    </Button>
+                </Segment>
+                {error ? <ErrorMessage error={error} /> : null}
+                </Form> 
+            </Grid.Column>
+        </Grid>
     );
 }
-

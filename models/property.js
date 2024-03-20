@@ -5,7 +5,7 @@ const propertySchema = mongoose.Schema({
   streetName: String,
   unitNumber: String,
   city: String,
-  state: String,
+  stateProperty: String,
   zip: Number,
   voucherHolder: String,
   tenantIdNumber: String,

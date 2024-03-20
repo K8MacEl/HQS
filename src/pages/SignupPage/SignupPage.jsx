@@ -58,8 +58,6 @@ export default function SignUpPage({ handleSignUpOrLogin }) {
          [e.target.name]: e.target.value,
        });
     }
-
-
   }
 
   async function handleSubmit(e) {
