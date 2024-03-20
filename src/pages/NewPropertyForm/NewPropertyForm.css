@@ -1,0 +1,39 @@
+
+.New_Property_Container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 200px 200px;
+    grid-template-rows:  50px; 
+    gap: 5px 5px;
+    background-color: lightgray;
+    width: 400px;
+    height: 400px;
+    margin: 0;
+    text-align: center;
+    margin-bottom: auto;
+    word-wrap: auto;
+}
+.New_Property_Section{
+    height: 100%; /* Full height */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.Property_Address_Title, .Property_Address_Input, .Voucher_Holder_Title, .Voucher_Holder_Input , .Tenant_Id_Title,.Tenant_Id_Input, .Property_Owner_Title, .Property_Owner_Input,.Family_Name_Title,.Family_Name_Input,.Census_Track_Title,.Census_Track_Input {
+    font-size: larger;
+    background-color: white;
+}
+
+.PHA_Property_Nav {
+    background-color: black;
+    margin-top: -70px;
+}
+
+.create_button {
+    display: flex; /* This turns on flexbox for this container */
+    justify-content: center; /* This spreads out the child elements evenly */
+    align-items: center;
+    margin-top: 15px;
+}

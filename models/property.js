@@ -10,7 +10,7 @@ const propertySchema = mongoose.Schema({
   tenantIdNumber: String,
   // inspections: [inspectionSchema],
   propertyOwner: String,
-  censusTrack:String,
+  censusTrack: Number,
   
   // One PHA Role User has many properties, referencing because we have user model, so we can get the users information when we need it
   //
