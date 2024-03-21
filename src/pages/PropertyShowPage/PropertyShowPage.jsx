@@ -75,10 +75,12 @@ export default function PropertyShowPage() {
                             {property.censusTrack}
                         </div>
                         <form className="request_inspection">
-                            <h3>INSPECTION REQUEST OPTION HERE</h3>
-                            requestInspection:
-                            dateOfRequest:
-                            requestor:
+                            <div>
+                            INSPECTION REQUEST
+                            </div>
+                            <div className="request_button">Request Inpsection:</div>
+                            <div className="request_date">Date of Request</div>
+                            <div className="requestor">Requestor</div>
                         </form>
                     </div>
                 </section>
