@@ -14,7 +14,8 @@ router.post('/', upload.single('photo'), propertiesCtrl.create);
 // /api/posts the index functions job is to return all of the posts
 router.get('/', propertiesCtrl.index)
 
-
+router.get('/:propertyId', propertiesCtrl.show )
+//set up show route here
 
 /*---------- Protected Routes ----------*/
 

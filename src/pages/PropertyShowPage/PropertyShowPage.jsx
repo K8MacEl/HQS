@@ -1,10 +1,39 @@
 import "./PropertyShowPage.css"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
+import { useState, useEffect } from "react";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import propertyService from "../../utils/propertyService";
+import tokenService from "../../utils/tokenService";
 
-export default function PropertyShowPage({property}) {
-console.log("this is property--->", property)
+export default function PropertyShowPage() {
+    // console.log("this is property--->", propertyToSendToServer)
+    const [property, setProperty] = useState({}); //this will be an array
+    const [loading, setLoading] = useState(true)
+    const { propertyId } = useParams();
+    async function getProperty() {
+        try {
+            //user params to grab that id
+            
+            const response = await fetch(`/api/properties/${propertyId}`, {
+                method: "GET",
+                headers: {
+                    Authorization: "Bearer " + tokenService.getToken(),
+                },
+            });
+            const data = await response.json();
+            setLoading(false)
+            console.log(data, "this is data");
+           setProperty(data.propertyDoc)
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    useEffect(() => {
+        getProperty()
+    }, [])
 
 
+    console.log("this is property-->", property)
 
     return (
 
@@ -21,39 +50,49 @@ console.log("this is property--->", property)
                     }}></h2>
                 </header>
                 <section className="property_information">
-                    <div className="property_box">
-                        <div className="property_address_title"> 
+                        <div className="property_address_title">
+                            Property Address:
                         </div>
                         <div className="property_address_input">
-                            
+                            { property.streetNumber }
+                            { property.streetName }
+                            { property.unit }
+                            { property.city }
+                            { property.state }
+                            { property. zip }
+
                         </div>
+                    <div className="property_box">
                         <div className="voucher_holder_title">
                             Voucher Holder:
                         </div>
                         <div className="voucher_holder_input">
-                            INPUT Voucher Holder:
+                            { property.voucherHolder }
                         </div>
                         <div className="tenant_id_title">
                             Tenant ID Number:
                         </div>
                         <div className="tenant_id_input">
-                            INPUT Tenant ID
+                            { property.tenantIdNumber}
                         </div>
                         <div className="property_owner_title">
-                            Property Owner:
+                            Property Owner:  
                         </div>
                         <div className="property_owner_input">
-                            INPUT Property Owner
+                             { property.propertyOwner }
                         </div>
                         <div className="census_title">
                             Census Track:
                         </div>
                         <div className="census_input">
-                            INPUT census track
+                            { property.censusTrack}
                         </div>
-                        <div className="request_inspection">
+                        <form className="request_inspection">
                             <h3>INSPECTION REQUEST OPTION HERE</h3>
-                        </div>
+                            requestInspection:
+                            dateOfRequest:
+                            requestor:
+                        </form>
                     </div>
                 </section>
             </div>

@@ -1,5 +1,11 @@
 const mongoose = require("mongoose");
 
+const inspectionRequestSchema = mongoose.Schema({
+  requestInspection: String,
+  dateOfRequest: Date,
+  requestor: String,
+})
+
 const propertySchema = mongoose.Schema({
   streetNumber: Number,
   streetName: String,
@@ -9,9 +15,10 @@ const propertySchema = mongoose.Schema({
   zip: Number,
   voucherHolder: String,
   tenantIdNumber: String,
-  // inspections: [inspectionSchema],
   propertyOwner: String,
   censusTrack: Number,
+  inspectionRequest: [inspectionRequestSchema],
+  // inspections: [inspectionSchema],
   
   // One PHA Role User has many properties, referencing because we have user model, so we can get the users information when we need it
   //

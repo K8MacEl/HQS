@@ -21,11 +21,13 @@ async function create(propertyToSendToServer){
 					// so the server knows who the request is coming from when the client is trying to make a POST
 				}
 		})
-        const data = await response.json();
+        // const data = await response.json();
+		return response.json();
+		
 		//       res.status(201).json({ post }); this value is from express/posts/create controller
 		console.log(data, ' response from post request! This from express')
-		setProperties([data.property, ...properties])
-		console.log("this is properties--->", properties)
+		// setProperties([data.property, ...properties])
+		// console.log("this is properties--->", properties)
 	} catch(err){
 		console.log(err.message)
 		console.log('CHECK YOUR SERVER TERMINAL!!!!')

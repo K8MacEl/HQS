@@ -13,7 +13,7 @@ import {
 } from "semantic-ui-react";
 import propertyService from "../../utils/propertyService"
 
-export default function NewPropertyForm() {
+export default function NewPropertyForm({setProperty}) {
     const [error, setError] = useState('');
     const [photo, setPhoto] = useState(null); // will need to inspections-should this go here?
     const [propertyDetails, setPropertyDetails] = useState({
@@ -40,9 +40,11 @@ export default function NewPropertyForm() {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            await propertyService.create(propertyDetails);
+            const data = await propertyService.create(propertyDetails);
+            console.log("this is data", data)
+            setProperty(data.propertyDoc);
             //i beleive i need a function comparable to handleSignUpOrLogin here??
-            navigate(`/${propertyDetails._id}`); ///change this later to a literal but for now home page
+            navigate(`/${data.propertyDoc._id}`); ///change this later to a literal but for now home page
         } catch (err) {
             console.log(err.message, " <- this comes from the throw in utils/signup");
             setError('Check Your Terminal for errors!!!!!!!!');

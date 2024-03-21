@@ -16,6 +16,7 @@ import userService from "./utils/userService";
 import { useNavigate } from 'react-router-dom'
 import propertyService from "./utils/propertyService";
 
+
 function App() {
   // the userService.getUser() when the page loads it goes into localstorage and looks for a jwt
   // token, decodes and sets it in state
@@ -36,9 +37,9 @@ function App() {
       <Route path="/signup" element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
       <Route path="/inspector" element={<InspectorProfilePage user={user}/> } />
       <Route path="/pha" element={<PHAProfilePage user={user}/> } />
-      <Route path="/newproperty" element={<NewPropertyForm />} />
-      <Route path="/:property" element={<PropertyShowPage property={property}/>} />
+      <Route path="/newproperty" element={<NewPropertyForm setProperty={setProperty} />} />
       <Route path="inspectionindex" element={<InspectionIndexPage />} />
+      <Route path="/:propertyId" element={<PropertyShowPage />} />
     </Routes>
   );
 }

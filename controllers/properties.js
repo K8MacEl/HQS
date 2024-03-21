@@ -5,7 +5,8 @@ const UserModel = require("../models/user");
 
 module.exports = {
   create,
-  index
+  index,
+  show,
 };
 
 const { v4: uuidv4 } = require('uuid');
@@ -27,7 +28,7 @@ async function create(req, res) {
       //req.params.id comes from the http request from the projects show page from the routes/projects route
       const propertyDoc = await PropertyModel.create(req.body);
       console.log(propertyDoc)
-      res.redirect(`/properties/${propertyDoc._id}`)
+      res.json({propertyDoc})
 
   } catch (err) {
       console.log(err);
@@ -45,5 +46,20 @@ async function index(req, res) {
     res.status(200).json({ posts });
   } catch (err) {
     res.json({ error: err })
+  }
+}
+
+async function show(req, res) {
+  try {
+      const propertyDoc = await PropertyModel.findById(req.params.propertyId)
+      console.log(propertyDoc);
+      if (!propertyDoc) {
+          return res.status(404).json({message: "property not found"});
+      }
+      res.json({ propertyDoc });
+    
+  } catch (err) {
+      console.log(err, "cant get to customer show page")
+      res.json({err});
   }
 }
