@@ -3,6 +3,31 @@
     background-color:  rgb( 255 196 56);
 
 }
+.address_title{
+    position: center;
+    background-color: black;
+    color: white;
+    font-size: 4vh;
+    display: grid;
+    justify-content: center;
+    padding-top: 2rem;
+    height: 10vh;
+    width: 505px;
+    margin: auto;
+}
+.address {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    font-size: 3vh;
+    height: 10vh;
+    width: 505px;
+    margin: auto;
+
+    }
+
 .property_information {
     display: grid;
     justify-content: center;
@@ -12,7 +37,7 @@
     height: 100%;
     margin: 0;
     padding-bottom: 5rem;
-    padding-left: 20rem;
+ 
 
 }
 .property_box{
@@ -24,12 +49,11 @@
     height: 100%; /* Full height */
     width: 100%;
     margin: 0; /* Remove default margin */
-    border-color: rgb( 255 196 56); 
-    border: 5rem;
     border-radius: 10px;
+    padding-left: 18rem;
 }
 
-.property_address_title, .property_address_input, .voucher_holder_title, .voucher_holder_input , .tenant_id_title,.tenant_id_input, .property_owner_title, .property_owner_input, .census_title,.census_input {
+.voucher_holder_title, .voucher_holder_input , .tenant_id_title,.tenant_id_input, .property_owner_title, .property_owner_input, .census_title,.census_input {
     font-size: larger;
     background-color: white;
     text-align: center;
