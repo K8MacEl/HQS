@@ -1,15 +1,16 @@
 
 import { Link } from "react-router-dom";
-import { useEffect, useState } from 'react'
-import "./PHAProfilePage.css"
+import { useEffect, useState } from 'react';
+import "./PHAProfilePage.css";
 import tokenService from "../../utils/tokenService";
 import NewPropertyForm from "../NewPropertyForm/NewPropertyForm";
 
 
 
 export default function PHAProfilePage({user}) {
-
     console.log(user, "<--this is user in PHA profile page")
+    
+
 
     return (
         <>
@@ -46,21 +47,7 @@ export default function PHAProfilePage({user}) {
                         </div>
                     </form>
                 </section >
-                <nav className="buttons">
-                    <div className="delete_button">
-                        <Link to="/signup">
-                            <button style={{
-                                height: "8vh",
-                                width: "25vh",
-                                background: "black",
-                                color: "white",
-                                borderRadius: "10px"
-                            }}>
-                                DELETE PROFILE NOT FUNCTIONAL YET!
-                            </button>
-                        </Link>
-                    </div>
-                </nav>
+
             </div >
             <div className="PHA_Property_Nav">
                 <div className="new_property_button">

@@ -26,6 +26,13 @@ function setToken(token) {
     return token ? JSON.parse(atob(token.split('.')[1])).user : null;
   }
   
+  function getPropertyFromToken() {
+    const token = getToken();
+    return token ? JSON.parse(atob(token.split('.')[1])).property : null;
+  }
+  
+  
+  
   function removeToken() {
     localStorage.removeItem('token');
   }
@@ -34,5 +41,6 @@ function setToken(token) {
     setToken,
     getToken,
     removeToken,
-    getUserFromToken
+    getUserFromToken,
+    getPropertyFromToken,
   };

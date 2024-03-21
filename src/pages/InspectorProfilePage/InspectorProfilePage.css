@@ -9,7 +9,6 @@
     width: 252px;
     margin: 0;
     text-align: center;
-    margin-bottom: 4rem;
 }
 .Inspector_Profile_Info{
     height: 100%; /* Full height */
@@ -17,6 +16,7 @@
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
+    margin-bottom: 10rem;
 }
 
 .Inspector_User_Name_Title, .Inspector_User_Name_Input, .Inspector_User_Email_Title, .Inspector_User_Email_Input , .Inspector_User_Email_Input, .Inspector_User_Email_Input,.Inspector_User_Role_Title,.Inspector_User_Role_Input {

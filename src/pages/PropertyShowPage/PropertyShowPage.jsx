@@ -1,7 +1,10 @@
 import "./PropertyShowPage.css"
 import { Link } from "react-router-dom"
 
-export default function PropertyShowPage() {
+export default function PropertyShowPage({property}) {
+console.log("this is property--->", property)
+
+
 
     return (
 
@@ -19,11 +22,10 @@ export default function PropertyShowPage() {
                 </header>
                 <section className="property_information">
                     <div className="property_box">
-                        <div className="property_address_title">
-                            Property Address:
+                        <div className="property_address_title"> 
                         </div>
                         <div className="property_address_input">
-                            INPUT ADDRESS
+                            
                         </div>
                         <div className="voucher_holder_title">
                             Voucher Holder:
@@ -49,38 +51,28 @@ export default function PropertyShowPage() {
                         <div className="census_input">
                             INPUT census track
                         </div>
+                        <div className="request_inspection">
+                            <h3>INSPECTION REQUEST OPTION HERE</h3>
+                        </div>
                     </div>
                 </section>
-                    </div>
-                <nav className="action_buttons">
-
+            </div>
+            <nav className="action_buttons">
                 <Link to="/inspectionrequest">
-                            <button style={{
-                                height: "8vh",
-                                width: "25vh",
-                                background: "rgb( 255 196 56)",
-                                color: "white",
-                                borderRadius: "10px"
-                            }}>
-                                REQUEST INSPECTION
-                            </button>
+                    <button style={{
+                        height: "8vh",
+                        width: "25vh",
+                        background: "rgb( 255 196 56)",
+                        color: "white",
+                        borderRadius: "10px"
+                    }}>
+                        DELETE PROPETY
+                    </button>
                 </Link>
-
-                <Link to="/inspectionrequest">
-                            <button style={{
-                                height: "8vh",
-                                width: "25vh",
-                                background: "rgb( 255 196 56)",
-                                color: "white",
-                                borderRadius: "10px"
-                            }}>
-                                DELETE PROPETY
-                            </button>
-                </Link>
-                </nav>
-                <section className="inspections_embedded">
-                    INSPECTIONS EMBEDDED HERE!
-                </section>
+            </nav>
+            <section className="inspections_embedded">
+                INSPECTIONS EMBEDDED HERE!
+            </section>
         </>
     )
 } 

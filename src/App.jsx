@@ -9,15 +9,18 @@ import PHAProfilePage from "./pages/PHAProfilePage/PHAProfilePage";
 import InspectorProfilePage from "./pages/InspectorProfilePage/InspectorProfilePage";
 import NewPropertyForm from "./pages/NewPropertyForm/NewPropertyForm";
 import PropertyShowPage from "./pages/PropertyShowPage/PropertyShowPage";
+import InspectionIndexPage from "./pages/InspectionIndexPage/InspectionIndexPage";
 // ANY component that is rendered by a route, should be stored in the 
 // pages folder. Every page is like an app component
 import userService from "./utils/userService";
 import { useNavigate } from 'react-router-dom'
+import propertyService from "./utils/propertyService";
 
 function App() {
   // the userService.getUser() when the page loads it goes into localstorage and looks for a jwt
   // token, decodes and sets it in state
   const [user, setUser] = useState(userService.getUser())
+  const [property, setProperty] = useState(propertyService.getProperty())
   const navigate = useNavigate()
   function handleSignUpOrLogin(){
     // we call this function after userService.login(), or userService.signup()
@@ -31,10 +34,11 @@ function App() {
       <Route path="/" element={<IndexPage />} />
       <Route path="/login" element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
       <Route path="/signup" element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
-      <Route path="/inspector" element={<InspectorProfilePage /> } />
+      <Route path="/inspector" element={<InspectorProfilePage user={user}/> } />
       <Route path="/pha" element={<PHAProfilePage user={user}/> } />
       <Route path="/newproperty" element={<NewPropertyForm />} />
-      <Route path="/propertyshow" element={<PropertyShowPage />} />
+      <Route path="/propertyshow" element={<PropertyShowPage property={property}/>} />
+      <Route path="inspectionindex" element={<InspectionIndexPage />} />
     </Routes>
   );
 }

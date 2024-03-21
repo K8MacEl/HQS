@@ -18,4 +18,8 @@ const propertySchema = mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId }, //confirm this pulls PHA name
 });
 
+const inspectionSchema =mongoose.Schema({
+  status: String,
+})
+
 module.exports = mongoose.model("Property", propertySchema);

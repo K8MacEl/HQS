@@ -15,8 +15,15 @@ const BUCKET_NAME = process.env.S3_BUCKET
 module.exports = {
   signup,
   login,
-  profile
+  profile,
+  
 };
+
+
+
+
+
+
 
 async function profile(req, res){
   try {

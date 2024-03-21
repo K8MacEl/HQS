@@ -14,6 +14,9 @@ router.post("/login", usersCtrl.login);
 // /api/users/ted
 // /api/users/kate
 router.get('/:username', usersCtrl.profile);
+
+//DELETE 
+
 /*---------- Protected Routes ----------*/
 
 module.exports = router;

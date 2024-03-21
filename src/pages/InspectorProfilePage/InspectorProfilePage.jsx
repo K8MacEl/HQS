@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import './InspectorProfilePage.css'
+import tokenService from "../../utils/tokenService";
 
-export default function InspectorProfilePage(){
+
+export default function InspectorProfilePage({user}){
+    console.log(user,"<---this is user in the Insecptor profile page")
 
 return (
     <>
@@ -22,56 +25,28 @@ return (
                         Name:
                     </div>
                     <div className="Inspector_User_Name_Input">
-                        
+                        {user.username}
                     </div>
                     <div className="Inspector_User_Email_Title">
                         Email:
                     </div>
                     <div className="Inspector_User_Email_Input">
-                      
+                        {user.email}
                     </div>
                     <div className="Inspector_User_Role_Title">
                         User Role:
                     </div>
                     <div className="Inspector_User_Role_Input">
-                        
+                        {user.role}
                     </div>
                 </form>
                 <br></br>
             </section >
-            <nav className="buttons">
-                <div className="edit_button">
-                    <Link to="/login">
-                        <button style={{
-                            height: "8vh",
-                            width: "15vh",
-                            background: "black",
-                            color: "white",
-                            margin: "10px",
-                            borderRadius: "10px"
-                        }}>
-                            EDIT PROFILE
-                        </button>
-                    </Link>
-                </div>
-                <div className="delete_button">
-                    <Link to="/signup">
-                        <button style={{
-                            height: "8vh",
-                            width: "15vh",
-                            background: "black",
-                            color: "white",
-                            borderRadius: "10px"
-                        }}>
-                            DELETE PROFILE
-                        </button>
-                    </Link>
-                </div>
-            </nav>
+            <br></br>
         </div >
         <div className="New_Inspections_Nav">
             <div className="show_inspection_button">
-                <Link to="/login">
+                <Link to="/inspectionindex">
                     <button style={{
                         height: "8vh",
                         width: "50vh",

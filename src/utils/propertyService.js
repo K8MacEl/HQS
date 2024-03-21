@@ -25,6 +25,7 @@ async function create(propertyToSendToServer){
 		//       res.status(201).json({ post }); this value is from express/posts/create controller
 		console.log(data, ' response from post request! This from express')
 		setProperties([data.property, ...properties])
+		console.log("this is properties--->", properties)
 	} catch(err){
 		console.log(err.message)
 		console.log('CHECK YOUR SERVER TERMINAL!!!!')
@@ -32,6 +33,11 @@ async function create(propertyToSendToServer){
 
   }
 
+  function getProperty() {
+	return tokenService.getPropertyFromToken();
+  }
+
   export default {
     create,
+	getProperty,
   };
