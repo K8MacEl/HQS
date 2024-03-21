@@ -7,6 +7,7 @@ module.exports = {
   create,
   index,
   show,
+  delete: deleteProperty,
 };
 
 const { v4: uuidv4 } = require('uuid');
@@ -61,5 +62,15 @@ async function show(req, res) {
   } catch (err) {
       console.log(err, "cant get to customer show page")
       res.json({err});
+  }
+}
+
+async function deleteProperty(req, res){
+  try {
+      
+      const post = await PropertyModel.deleteOne({'_id': req.params.propertyId});
+      res.json({data: "property deleted"})
+  } catch(err){
+      res.status(400).json({err})
   }
 }

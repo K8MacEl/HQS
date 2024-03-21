@@ -15,6 +15,8 @@ router.post('/', upload.single('photo'), propertiesCtrl.create);
 router.get('/', propertiesCtrl.index)
 
 router.get('/:propertyId', propertiesCtrl.show )
+
+router.delete('/:propertyId', propertiesCtrl.delete)
 //set up show route here
 
 /*---------- Protected Routes ----------*/

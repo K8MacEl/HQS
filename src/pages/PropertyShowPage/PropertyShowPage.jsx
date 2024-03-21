@@ -1,9 +1,18 @@
 import "./PropertyShowPage.css"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import propertyService from "../../utils/propertyService";
 import tokenService from "../../utils/tokenService";
+import {
+    Button,
+    Form,
+    Grid,
+    Header,
+    Image,
+    Segment,
+    Dropdown,
+} from "semantic-ui-react";
 
 export default function PropertyShowPage() {
     // console.log("this is property--->", propertyToSendToServer)
@@ -28,9 +37,33 @@ export default function PropertyShowPage() {
             console.log(err);
         }
     }
+
+    const navigate = useNavigate();
+
+    function handleChange(e) {
+        setProperty({
+          ...propertyDetails,
+          [e.target.name]: e.target.value,
+        });
+      }
+
+    async function handleDelete() {
+        try {
+            const data = await propertyService.deleteProperty(propertyId);
+            console.log("this is data", data)
+            //i beleive i need a function comparable to handleSignUpOrLogin here??
+            navigate(`/newproperty`); ///change this later to a literal but for now home page
+        } catch (err) {
+            console.log(err.message, " <- this comes from the throw in utils/signup");
+            setError('Check Your Terminal for errors!!!!!!!!');
+        }
+    }
+
+
     useEffect(() => {
         getProperty()
     }, [])
+
 
 
     console.log("this is property-->", property)
@@ -85,19 +118,20 @@ export default function PropertyShowPage() {
                     </div>
                 </section>
             </div>
-            <nav className="action_buttons">
-                <Link to="/inspectionrequest">
-                    <button style={{
+         
+            
+                    <Button action="submit" onClick={handleDelete} style={{
                         height: "8vh",
                         width: "25vh",
-                        background: "rgb( 255 196 56)",
+                        background: "black",
                         color: "white",
-                        borderRadius: "10px"
+                        borderRadius: "10px",
                     }}>
+                        
                         DELETE PROPETY
-                    </button>
-                </Link>
-            </nav>
+                    </Button>
+               
+          
             <section className="inspections_embedded">
                 INSPECTIONS EMBEDDED HERE!
             </section>

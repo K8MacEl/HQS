@@ -39,7 +39,25 @@ async function create(propertyToSendToServer){
 	return tokenService.getPropertyFromToken();
   }
 
+  async function deleteProperty(propertyId){
+    try{
+        const response = await fetch(`/api/properties/${propertyId}`, {
+            method: "DELETE",
+            headers: {
+                Authorization: "Bearer " + tokenService.getToken(),
+            }
+        })
+
+        const data = await response.json()
+        console.log(data, 'response from delete property')
+  
+    } catch (err) {
+        console.log(err)
+    }
+}
+
   export default {
     create,
 	getProperty,
+	deleteProperty,
   };

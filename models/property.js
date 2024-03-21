@@ -3,7 +3,10 @@ const mongoose = require("mongoose");
 const inspectionRequestSchema = mongoose.Schema({
   requestInspection: String,
   dateOfRequest: Date,
-  requestor: String,
+  requestorId: { type: mongoose.Schema.Types.ObjectId, ref: "User"},
+  requestionName: String,
+  inspectorId: { type: mongoose.Schema.Types.ObjectId, ref: "User"},
+  inspectorName: String,
 })
 
 const propertySchema = mongoose.Schema({
