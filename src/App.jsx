@@ -37,7 +37,7 @@ function App() {
       <Route path="/inspector" element={<InspectorProfilePage user={user}/> } />
       <Route path="/pha" element={<PHAProfilePage user={user}/> } />
       <Route path="/newproperty" element={<NewPropertyForm />} />
-      <Route path="/propertyshow" element={<PropertyShowPage property={property}/>} />
+      <Route path="/:property" element={<PropertyShowPage property={property}/>} />
       <Route path="inspectionindex" element={<InspectionIndexPage />} />
     </Routes>
   );
