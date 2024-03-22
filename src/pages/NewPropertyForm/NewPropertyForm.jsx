@@ -59,7 +59,7 @@ export default function NewPropertyForm({setProperty}) {
                         backgroundColor: 'rgb(255, 196, 56)' }}>
                     <h1>CREATE NEW PROPERTY</h1>
                 <Form autoComplete="off" onSubmit={handleSubmit}>
-                <Segment stacked>
+                    <Segment stacked>
                     <Form.Input
                     fluid label="Property Address"
                     name="streetNumber"

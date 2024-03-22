@@ -19,6 +19,7 @@ router.get('/:propertyId', propertiesCtrl.show )
 router.delete('/:propertyId', propertiesCtrl.delete)
 //set up show route here
 
+
 /*---------- Protected Routes ----------*/
 
 

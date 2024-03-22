@@ -118,12 +118,12 @@ console.log(state, "this is state")
             />
             <Form.Select
               fluid
-              name='role'
-              label='Role'
+              name="role"
+              label="Role"
               options={options}
               onChange={handleChange}
               value={state.role}
-              placeholder='Role'
+              placeholder="Role"
             />
             <Form.Input
               type="email"

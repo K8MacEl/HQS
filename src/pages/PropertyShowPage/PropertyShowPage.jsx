@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import propertyService from "../../utils/propertyService";
 import tokenService from "../../utils/tokenService";
+import RequestInspectionForm from "../../components/RequestInspectionForm/RequestInspectionForm";
+// import RequestInspectionForm from "./components/RequestInspectionForm/RequestInspectionForm";
 import {
     Button,
     Form,
@@ -14,23 +16,14 @@ import {
     Dropdown,
 } from "semantic-ui-react";
 
+
 export default function PropertyShowPage() {
     // console.log("this is property--->", propertyToSendToServer)
     const [property, setProperty] = useState({}); //this will be an array
     const [loading, setLoading] = useState(true)
     const { propertyId } = useParams();
-    const [ requestDetails, setRequestDetails] = useState ({
-        requestionInspection: String,
-        // requestorId: "User", ///-------CORRECT?? I want the user name of the PHA creating it
-        requestionName: String,
-        // inspectorId: "User", ///-----CORRECT? I want later the username of the Inspector added here
-        inspectorName: String, 
-    })
+  
 
-
-
-
-    
     async function getProperty() {
         try {
             //user params to grab that id
@@ -54,7 +47,7 @@ export default function PropertyShowPage() {
 
     function handleChange(e) {
         setProperty({
-            ...propertyDetails,
+            ...requestDetails,
             [e.target.name]: e.target.value,
         });
     }
@@ -63,22 +56,17 @@ export default function PropertyShowPage() {
         try {
             const data = await propertyService.deleteProperty(propertyId);
             console.log("this is data", data)
-            //i beleive i need a function comparable to handleSignUpOrLogin here??
-            navigate(`/newproperty`); ///change this later to a literal but for now home page
+            navigate(`/newproperty`); 
         } catch (err) {
             console.log(err.message, " <- this comes from the throw in utils/signup");
-            setError('Check Your Terminal for errors!!!!!!!!');
+            setError("Check Your Terminal for errors!!!!!!!!");
         }
     }
 
-
+   
     useEffect(() => {
         getProperty()
     }, [])
-
-
-
-    console.log("this is property-->", property)
 
     return (
         <>
@@ -119,14 +107,6 @@ export default function PropertyShowPage() {
                         <div className="census_input">
                             {property.censusTrack}
                         </div>
-                        <form className="request_inspection">
-                            <div>
-                                INSPECTION REQUEST
-                            </div>
-                            <div className="request_button">Request Inpsection:</div>
-                            <div className="request_date">Date of Request</div>
-                            <div className="requestor">Requestor</div>
-                        </form>
                     </div>
                 </section>
 
@@ -144,11 +124,13 @@ export default function PropertyShowPage() {
                 </Button>
                 </div>
 
+                
                 <section className="inspections_embedded">
-                    INSPECTIONS EMBEDDED HERE!
+                    INSPECTIONS EMBEDDED HERE! USE COMPONENTS!
                 </section>
+            <RequestInspectionForm/>
             </div>
         </>
-    )
+        )
 }
 

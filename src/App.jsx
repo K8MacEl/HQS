@@ -10,6 +10,7 @@ import InspectorProfilePage from "./pages/InspectorProfilePage/InspectorProfileP
 import NewPropertyForm from "./pages/NewPropertyForm/NewPropertyForm";
 import PropertyShowPage from "./pages/PropertyShowPage/PropertyShowPage";
 import InspectionIndexPage from "./pages/InspectionIndexPage/InspectionIndexPage";
+
 // ANY component that is rendered by a route, should be stored in the 
 // pages folder. Every page is like an app component
 import userService from "./utils/userService";
