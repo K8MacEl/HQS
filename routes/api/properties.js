@@ -11,7 +11,7 @@ const upload = multer();
 // is the formData being sent from the react app(client) to express
 router.post('/', upload.single('photo'), propertiesCtrl.create);
 
-// /api/posts the index functions job is to return all of the posts
+// /api/properties the index functions job is to return all of the properties
 router.get('/', propertiesCtrl.index)
 
 router.get('/:propertyId', propertiesCtrl.show )

@@ -41,27 +41,14 @@ export default function InspectionIndexPage() {
                     <br />
                     <h1 style={{
                         fontSize: "10vh"
-                    }}>PROPERTY INSPECTIONS</h1>
+                    }}>INSPECTION REQUESTS</h1>
                     <h2 style={{
                         fontsize: "10vh"
                     }}></h2>
                 </header>
                 <section className="propertiesForInspection">
-                    <div className="property_address_title">
-                        Property Address:
-                    </div>
-                    <div className="view_property_title">
-                        View Property:
-                    </div>
-                    <div className="pha_title">
-                        PHA:
-                    </div>
-                    
-
-
-
-
-
+             
+                
                 </section>
             </div>
         )

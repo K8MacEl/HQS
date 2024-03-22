@@ -15,6 +15,7 @@ import InspectionIndexPage from "./pages/InspectionIndexPage/InspectionIndexPage
 import userService from "./utils/userService";
 import { useNavigate } from 'react-router-dom'
 import propertyService from "./utils/propertyService";
+import PropertyIndexPage from "./pages/PropertyIndexPage/PropertyIndexPage";
 
 
 function App() {
@@ -38,7 +39,8 @@ function App() {
       <Route path="/inspector" element={<InspectorProfilePage user={user}/> } />
       <Route path="/pha" element={<PHAProfilePage user={user}/> } />
       <Route path="/newproperty" element={<NewPropertyForm setProperty={setProperty} />} />
-      <Route path="inspectionindex" element={<InspectionIndexPage />} />
+      <Route path="/propertyindex" element={<PropertyIndexPage /> } />
+      <Route path="/inspectionindex" element={<InspectionIndexPage />} />
       <Route path="/:propertyId" element={<PropertyShowPage />} />
     </Routes>
   );
