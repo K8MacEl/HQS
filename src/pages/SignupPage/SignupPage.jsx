@@ -4,7 +4,7 @@ import "./SignupPage/SignupPage.css";
 
 import {
   Button,
-  Form,gi
+  Form,
   Grid,
   Header,
   Image,
@@ -31,7 +31,6 @@ const options = [
 export default function SignUpPage({ handleSignUpOrLogin }) {
 
   const [error, setError] = useState('')
-
   const [state, setState] = useState({
     username: "",
     email: "",
