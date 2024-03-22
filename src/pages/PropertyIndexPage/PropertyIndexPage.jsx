@@ -3,6 +3,8 @@ import { token } from "morgan";
 import PropertyShowPage from "../PropertyShowPage/PropertyShowPage"
 import { useState, useEffect } from "react";
 import tokenService from "../../utils/tokenService";
+import "./PropertyIndexPage.css"
+import { Link } from "react-router-dom"
 
 export default function PropertyIndexPage() {
     const [properties, setProperties] = useState([])//i want an array off all properties
@@ -29,7 +31,7 @@ export default function PropertyIndexPage() {
     
     useEffect(() => {
         // This useEffect is called when the page loads
-        // Don't forget to call the function
+        // call the function getProperties
         getProperties();
       }, []);
 
@@ -44,14 +46,23 @@ export default function PropertyIndexPage() {
                 <header className="title">
                     <br />
                     <h1 style={{
-                        fontSize: "5vh"
+                        fontSize: "8vh"
                     }}>Property Index Page</h1>
                 </header>
-                <div>
+                <nav className="property_header">
+                    <div>Property Address</div>
+                    <div>Property Profile Link</div>
+                </nav>
+                <div className="properties.container">
                     {properties.length > 0 ? (
                         properties.map((property) => (
-                            <div key={property._id}> {/* Assuming each property has a unique _id */}
-                                <h3>{property.voucherHolder}</h3> 
+                            <div key={property._id} className="property_row"> 
+                                <div className="address_column"> {property.streetNumber}, {property.streetName}
+                                </div>
+                                <div className="property_show_link"> 
+                                <Link to={`/${property._id}`}> View Property
+                                </Link> 
+                                </div>
                             </div>
                         ))
                     ) : (
