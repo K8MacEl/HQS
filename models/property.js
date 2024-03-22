@@ -2,12 +2,15 @@ const mongoose = require("mongoose");
 
 const inspectionRequestSchema = mongoose.Schema({
   requestInspection: String,
-  dateOfRequest: Date,
   requestorId: { type: mongoose.Schema.Types.ObjectId, ref: "User"},
   requestionName: String,
   inspectorId: { type: mongoose.Schema.Types.ObjectId, ref: "User"},
-  inspectorName: String,
-})
+  inspectorName: String, 
+},
+  {
+    timestamps: true,
+  }
+);
 
 const propertySchema = mongoose.Schema({
   streetNumber: Number,
@@ -26,7 +29,12 @@ const propertySchema = mongoose.Schema({
   // One PHA Role User has many properties, referencing because we have user model, so we can get the users information when we need it
   //
   userId: { type: mongoose.Schema.Types.ObjectId }, //confirm this pulls PHA name
-});
+},
+  {
+    timestamps: true,
+  }
+
+);
 
 const inspectionSchema =mongoose.Schema({
   status: String,

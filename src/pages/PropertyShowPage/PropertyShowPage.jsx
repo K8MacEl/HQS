@@ -19,6 +19,18 @@ export default function PropertyShowPage() {
     const [property, setProperty] = useState({}); //this will be an array
     const [loading, setLoading] = useState(true)
     const { propertyId } = useParams();
+    const [ requestDetails, setRequestDetails] = useState ({
+        requestionInspection: String,
+        // requestorId: "User", ///-------CORRECT?? I want the user name of the PHA creating it
+        requestionName: String,
+        // inspectorId: "User", ///-----CORRECT? I want later the username of the Inspector added here
+        inspectorName: String, 
+    })
+
+
+
+
+    
     async function getProperty() {
         try {
             //user params to grab that id
@@ -79,7 +91,7 @@ export default function PropertyShowPage() {
                 <div className="address_title"><strong>Property Address:</strong></div>
                 <nav className="address">
                     <div className="street_address">{property.streetNumber} {property.streetName}, {property.unit}</div>
-                    <div>{property.city}, {property.state} {property.zip}</div>
+                    <div>{property.city}, {property.stateProperty} {property.zip}</div>
                 </nav>
                 <section className="property_information">
                     <div className="property_box">

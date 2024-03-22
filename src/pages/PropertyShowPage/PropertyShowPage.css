@@ -92,7 +92,8 @@
 }
 
 .button_container{
-    padding-left: 70vh;
+    display: flex;
+    justify-content: center;
     margin-bottom: 5rem;
 }
 

@@ -28,6 +28,7 @@ export default function NewPropertyForm({setProperty}) {
         propertyOwner: '',
         censusTrack: '',
     });
+
     const navigate = useNavigate();
 
     function handleChange(e) {
@@ -91,7 +92,7 @@ export default function NewPropertyForm({setProperty}) {
                     <Form.Input
                     name="state"
                     placeholder="State"
-                    value={propertyDetails.state}
+                    value={propertyDetails.stateProperty}
                     onChange={handleChange}
                     required
                     />
