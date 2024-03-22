@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently 'vite' 'nodemon server.js'",
     "vite-build": "vite build",
-    "build": "npm install",
+    "build": "vite build & npm install",
     "preview": "vite preview"
   },
   "dependencies": {
