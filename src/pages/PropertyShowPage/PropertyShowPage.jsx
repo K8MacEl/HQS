@@ -42,10 +42,10 @@ export default function PropertyShowPage() {
 
     function handleChange(e) {
         setProperty({
-          ...propertyDetails,
-          [e.target.name]: e.target.value,
+            ...propertyDetails,
+            [e.target.name]: e.target.value,
         });
-      }
+    }
 
     async function handleDelete() {
         try {
@@ -76,7 +76,7 @@ export default function PropertyShowPage() {
                     <h1 style={{ fontSize: "10vh" }}>PROPERTY INFORMATION</h1>
                     <h2 style={{ fontSize: "10vh" }}></h2> {/* Fixed fontSize */}
                 </header>
-                    <div className="address_title"><strong>Property Address:</strong></div>
+                <div className="address_title"><strong>Property Address:</strong></div>
                 <nav className="address">
                     <div className="street_address">{property.streetNumber} {property.streetName}, {property.unit}</div>
                     <div>{property.city}, {property.state} {property.zip}</div>
@@ -109,7 +109,7 @@ export default function PropertyShowPage() {
                         </div>
                         <form className="request_inspection">
                             <div>
-                            INSPECTION REQUEST
+                                INSPECTION REQUEST
                             </div>
                             <div className="request_button">Request Inpsection:</div>
                             <div className="request_date">Date of Request</div>
@@ -117,25 +117,26 @@ export default function PropertyShowPage() {
                         </form>
                     </div>
                 </section>
+
+                <div className="button_container">
+                <Button className="delete_button"action="submit" onClick={handleDelete} style={{
+                    height: "8vh",
+                    width: "77vh",
+                    background: "red",
+                    color: "white",
+                    borderRadius: "10px",
+                    fontSize: "20px",
+                }}>
+
+                    DELETE PROPETY
+                </Button>
+                </div>
+
+                <section className="inspections_embedded">
+                    INSPECTIONS EMBEDDED HERE!
+                </section>
             </div>
-         
-            
-                    <Button action="submit" onClick={handleDelete} style={{
-                        height: "8vh",
-                        width: "25vh",
-                        background: "black",
-                        color: "white",
-                        borderRadius: "10px",
-                    }}>
-                        
-                        DELETE PROPETY
-                    </Button>
-               
-          
-            <section className="inspections_embedded">
-                INSPECTIONS EMBEDDED HERE!
-            </section>
-            </>
+        </>
     )
-} 
+}
 
