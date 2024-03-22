@@ -1,10 +1,10 @@
 import { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import "../SignupPage/SignUpPage.css";
+import "./SignupPage/SignupPage.css";
 
 import {
   Button,
-  Form,
+  Form,gi
   Grid,
   Header,
   Image,

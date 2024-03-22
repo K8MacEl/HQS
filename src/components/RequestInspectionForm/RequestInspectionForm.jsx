@@ -11,7 +11,7 @@ export default function RequestInspectionForm() {
     const [requestDetails, setRequestDetails] = useState({
         requestInspection: "",
     })
-    
+
     async function handleSubmit() {
         e.preventDefault();
         try {
@@ -24,6 +24,8 @@ export default function RequestInspectionForm() {
             setError("Check your terminal for errors!!!");
         }
     }
+
+    //HANDLECHANGE?!!!???
     useEffect(() => {
         getProperty()
     }, [])
