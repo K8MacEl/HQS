@@ -31,7 +31,26 @@ function App() {
     setUser(userService.getUser())
     navigate(`/${user.role}`);//<---just added this here but no go
   }
-  console.log("user", user)
+  function logout() {
+    console.log("happening");
+    userService.logout();
+    setUser(null);
+  }
+if (!user) {
+  return (
+    <Routes>
+         <Route
+          path="/login"
+          element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
+        />
+        <Route
+          path="/signup"
+          element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin} />}
+        />
+        <Route path="*" element={<Navigate to="/login" />} />
+    </Routes>
+  );
+}
   return (
     <Routes>
       <Route path="/" element={<IndexPage />} />

@@ -4,16 +4,18 @@ import { useEffect, useState } from 'react';
 import "./PHAProfilePage.css";
 import tokenService from "../../utils/tokenService";
 import NewPropertyForm from "../NewPropertyForm/NewPropertyForm";
+import Header from "../../components/Header/Header"
 
 
 
-export default function PHAProfilePage({user}) {
+export default function PHAProfilePage({user, loggedUser, handleLogout}) {
     console.log(user, "<--this is user in PHA profile page")
     
 
 
     return (
         <>
+        <Header></Header>
             <div className="yellow_top_page">
                 <img className="hqspec_logo" src="https://i.imgur.com/CKEt2Kqm.png" alt="" />
                 <header className="title">

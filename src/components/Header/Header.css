@@ -1,0 +1,19 @@
+.header_container {
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    padding: 10px 0; 
+    background-color: #f4f4f4; 
+    border-bottom: 1rem solid black;
+    font-weight: bold;
+}
+
+.header_container > div {
+    padding: 5px 10px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.header_container > div:hover {
+    background-color: #ddd; 
+}
