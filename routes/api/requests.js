@@ -4,6 +4,6 @@ const requestsCtrl = require('../../controllers/properties');
 const multer = require('multer');
 const upload = multer();
 
-router.delete('/:property/:id/request', requestsCtrl.create);
+router.post('/property/:id/requests', requestsCtrl.create);
 
 module.exports = router;

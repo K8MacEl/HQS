@@ -31,7 +31,7 @@ app.use(require("./config/auth"));
 // api routes must be before the "catch all" route
 app.use("/api/users", userRouter);
 app.use("/api/properties", propertiesRouter);
-app.use("/api/request", requestsRouter);
+app.use("/api", requestsRouter);
 
 // "catch all" route
 if(process.env.IS_PRODUCTION){

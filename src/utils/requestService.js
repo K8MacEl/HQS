@@ -1,14 +1,14 @@
-import { request } from 'express';
+
 import tokenService from './tokenService';
 
 const BASE_URL = 'api/requests';
 
-async function create(requestToSendToServer) {
+async function create(requestToSendToServer, propertyId) {
     console.log(requestToSendToServer, "requestToSendToServer")
 
 
     try {
-        const response = await fetch('/api/requests', {
+        const response = await fetch(`/api/property/${propertyId}/requests`, {
             method: 'POST',
             body: JSON.stringify(requestToSendToServer),
             headers: {

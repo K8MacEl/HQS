@@ -1,4 +1,15 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import requestService from "../../utils/requestService";
+import {
+    Button,
+    Form,
+    Grid,
+    Header,
+    Image,
+    Segment,
+    Dropdown,
+} from "semantic-ui-react";
 
 
 const options = [
@@ -7,29 +18,29 @@ const options = [
     { key: 'r', text: 'Reinspection', value: 'reinspection' }
 ]
 
-export default function RequestInspectionForm() {
-    const [requestDetails, setRequestDetails] = useState({
-        requestInspection: "",
-    })
+export default function RequestInspectionForm({propertyId, submitRequest, requestDetails, setRequestDetails }) {
+  
+    const [error, setError] = useState('')
+    const navigate = useNavigate();
 
-    async function handleSubmit() {
-        e.preventDefault();
-        try {
-            const data = await requestService.create(requestDetails);
-            console.log("this is data for creating request", data)
-            setRequestDetails(data.requestDoc);
-            navigate(`/${propertyId}`);
-        } catch (err) {
-            console.log(err.message, "<---this comes from the the throw in utils/create");
-            setError("Check your terminal for errors!!!");
+    function handleChange(e, target) {
+        if(target) {
+            setRequestDetails({
+                ...requestDetails,
+                [target.name]: target.value,
+              });
+        } else {  
+            setRequestDetails({
+            ...requestDetails,
+            [e.target.name]: e.target.value,
+          });
+
         }
-    }
 
-    //HANDLECHANGE?!!!???
-    useEffect(() => {
-        getProperty()
-    }, [])
+       
+      }
 
+    
     return (
         <>
             <Grid className="request_inspection" textAlign="center"
@@ -39,14 +50,15 @@ export default function RequestInspectionForm() {
                 </div>
                 <Form
                     autoComplete="off"
-                    onSubmit={handleSubmit} className="request_form">
+                    onSubmit={submitRequest} className="request_form">
                     <Form.Select
-                        fluid label="Request Inspection"
+                        fluid label="Inspection request type"
                         name="requestInspection"
+                        label="Inspection Type Requested"
                         options={options}
-                        onChange={handleChange}
+                        placeholder="Inspection Type"
                         value={requestDetails.requestInspection}
-                        placeholder="Request"
+                        onChange={handleChange}
                     />
                     <Button type="submit" className="request_btn" color="black">
                         SUBMIT REQUEST

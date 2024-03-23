@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import "./SignupPage/SignupPage.css";
+import "../SignupPage/SignupPage.css";
 
 import {
   Button,

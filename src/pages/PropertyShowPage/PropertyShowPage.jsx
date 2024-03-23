@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import propertyService from "../../utils/propertyService";
+
 import tokenService from "../../utils/tokenService";
 import RequestInspectionForm from "../../components/RequestInspectionForm/RequestInspectionForm";
 // import RequestInspectionForm from "./components/RequestInspectionForm/RequestInspectionForm";
@@ -15,6 +16,7 @@ import {
     Segment,
     Dropdown,
 } from "semantic-ui-react";
+import requestService from "../../utils/requestService";
 
 
 export default function PropertyShowPage() {
@@ -22,7 +24,23 @@ export default function PropertyShowPage() {
     const [property, setProperty] = useState({}); //this will be an array
     const [loading, setLoading] = useState(true)
     const { propertyId } = useParams();
+    const [error, setError] = useState('');
+    const [requestDetails, setRequestDetails] = useState({
+        requestInspection: '',
+    })
   
+    async function submitRequest(e) {
+        e.preventDefault();
+        try {
+            const data = await requestService.create(requestDetails, propertyId);
+            console.log("this is data for creating request", data)
+          
+         
+        } catch (err) {
+            console.log(err.message, "<---this comes from the the throw in utils/create");
+            setError("Check your terminal for errors!!!");
+        }
+    }
 
     async function getProperty() {
         try {
@@ -128,7 +146,7 @@ export default function PropertyShowPage() {
                 <section className="inspections_embedded">
                     INSPECTIONS EMBEDDED HERE! USE COMPONENTS!
                 </section>
-            <RequestInspectionForm/>
+            <RequestInspectionForm propertyId={propertyId} submitRequest={submitRequest} setRequestDetails={setRequestDetails} requestDetails={requestDetails} />
             </div>
         </>
         )

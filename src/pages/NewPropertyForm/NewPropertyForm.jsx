@@ -94,7 +94,7 @@ export default function NewPropertyForm({setProperty}) {
                     placeholder="State"
                     value={propertyDetails.stateProperty}
                     onChange={handleChange}
-                    required
+                    
                     />
                     <Form.Input
                     name="zip"
