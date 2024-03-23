@@ -140,14 +140,12 @@ export default function PropertyShowPage() {
 
                     DELETE PROPETY
                 </Button>
-                </div>
-
-                
+                </div>                
+            <RequestInspectionForm propertyId={propertyId} submitRequest={submitRequest} setRequestDetails={setRequestDetails} requestDetails={requestDetails} />
+            </div>
                 <section className="inspections_embedded">
                     INSPECTIONS EMBEDDED HERE! USE COMPONENTS!
                 </section>
-            <RequestInspectionForm propertyId={propertyId} submitRequest={submitRequest} setRequestDetails={setRequestDetails} requestDetails={requestDetails} />
-            </div>
         </>
         )
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import requestService from "../../utils/requestService";
+import "./RequestInspectionForm.css"
 import {
     Button,
     Form,
@@ -44,17 +45,14 @@ export default function RequestInspectionForm({propertyId, submitRequest, reques
     return (
         <>
             <Grid className="request_inspection" textAlign="center"
-                autoComplete="off">
-                <div>
-                    INSPECTION REQUEST
-                </div>
+                autoComplete="off" style={{textAlign:"center"  }}>
                 <Form
                     autoComplete="off"
                     onSubmit={submitRequest} className="request_form">
+                        <h2>REQUEST INSPECTION</h2>
                     <Form.Select
-                        fluid label="Inspection request type"
+                        fluid
                         name="requestInspection"
-                        label="Inspection Type Requested"
                         options={options}
                         placeholder="Inspection Type"
                         value={requestDetails.requestInspection}
@@ -65,6 +63,7 @@ export default function RequestInspectionForm({propertyId, submitRequest, reques
                     </Button>
                 </Form>
             </Grid>
+            <br></br>
         </>
 
 
