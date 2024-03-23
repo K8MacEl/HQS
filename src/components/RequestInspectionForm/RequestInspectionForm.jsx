@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import requestService from "../../utils/requestService";
-import "./RequestInspectionForm.css"
+import "./RequestInspectionForm.css";
 import Header from "../../components/Header/Header"
 import {
     Button,
@@ -16,7 +16,7 @@ const options = [
     { key: 'r', text: 'Reinspection', value: 'reinspection' }
 ]
 
-export default function RequestInspectionForm({propertyId, submitRequest, requestDetails, setRequestDetails }) {
+export default function RequestInspectionForm({propertyId, submitRequest, requestDetails, setRequestDetails, user, loggedUser, handleLogout }) {
   
     const [error, setError] = useState('')
     const navigate = useNavigate();
@@ -41,6 +41,7 @@ export default function RequestInspectionForm({propertyId, submitRequest, reques
     
     return (
         <>
+        <Header></Header>
             <Grid className="request_inspection" textAlign="center"
                 autoComplete="off" style={{textAlign:"center"  }}>
                 <Form

@@ -5,7 +5,7 @@ import "./PHAProfilePage.css";
 import tokenService from "../../utils/tokenService";
 import NewPropertyForm from "../NewPropertyForm/NewPropertyForm";
 import Header from "../../components/Header/Header"
-
+import Footer from "../../components/Footer/Footer"
 
 
 export default function PHAProfilePage({user, loggedUser, handleLogout}) {
@@ -79,6 +79,7 @@ export default function PHAProfilePage({user, loggedUser, handleLogout}) {
                         }}>MY PROPERTIES SHOW BELOW</h2>                 
                 </div>
             </div>
+            <Footer></Footer>
         </>
     )
 }
