@@ -76,3 +76,20 @@
  padding-top: 5rem;
  padding-bottom: 5rem;
 }
+
+.requested_inspections {
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+    background-color: rgb( 255 196 56);
+    color: black;
+}
+.inspection_type, .requestor_name, .request_date{
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    color: black;
+    height: 3rem;
+    padding-top: 1rem;
+}

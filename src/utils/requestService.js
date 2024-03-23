@@ -3,7 +3,7 @@ import tokenService from './tokenService';
 
 const BASE_URL = 'api/requests';
 
-async function create(requestToSendToServer, propertyId) {
+async function createRequest(requestToSendToServer, propertyId) {
     console.log(requestToSendToServer, "requestToSendToServer")
 
 
@@ -30,6 +30,6 @@ function getRequestInspection(){
 }
 
 export default {
-    create,
+    createRequest,
     getRequestInspection,
 };

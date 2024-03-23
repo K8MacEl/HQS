@@ -27,12 +27,13 @@ export default function PropertyShowPage() {
     const [error, setError] = useState('');
     const [requestDetails, setRequestDetails] = useState({
         requestInspection: '',
+        requestorName: '',
     })
   
     async function submitRequest(e) {
         e.preventDefault();
         try {
-            const data = await requestService.create(requestDetails, propertyId);
+            const data = await requestService.createRequest(requestDetails, propertyId);
             console.log("this is data for creating request", data)
           
          
@@ -142,6 +143,16 @@ export default function PropertyShowPage() {
                 </Button>
                 </div>                
             <RequestInspectionForm propertyId={propertyId} submitRequest={submitRequest} setRequestDetails={setRequestDetails} requestDetails={requestDetails} />
+           </div>
+           <div className="requested_inspections">
+            <h2>REQUESTED INSPECTIONS:</h2>
+           </div>
+            <div className="inspection_type">TYPE: {requestDetails.requestInspection}
+            </div>
+            <div className="requestor_name">REQUESTED BY: {requestDetails.requestorName}
+            </div>
+            <div className="request_date">REQUEST DATE:
+            {requestDetails.requestDate}
             </div>
                 <section className="inspections_embedded">
                     INSPECTIONS EMBEDDED HERE! USE COMPONENTS!

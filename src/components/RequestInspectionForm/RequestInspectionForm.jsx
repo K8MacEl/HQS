@@ -2,14 +2,11 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import requestService from "../../utils/requestService";
 import "./RequestInspectionForm.css"
+import Header from "../../components/Header/Header"
 import {
     Button,
     Form,
     Grid,
-    Header,
-    Image,
-    Segment,
-    Dropdown,
 } from "semantic-ui-react";
 
 
@@ -51,11 +48,26 @@ export default function RequestInspectionForm({propertyId, submitRequest, reques
                     onSubmit={submitRequest} className="request_form">
                         <h2>REQUEST INSPECTION</h2>
                     <Form.Select
-                        fluid
+                        fluid label="Type of Inspection"
                         name="requestInspection"
                         options={options}
                         placeholder="Inspection Type"
                         value={requestDetails.requestInspection}
+                        onChange={handleChange}
+                    />
+                    <Form.Input 
+                        fluid label="Name of Requestor"
+                        name="requestorName"
+                        placeholder="Name of Requestor"
+                        value={requestDetails.requestorName}
+                        onChange={handleChange}
+                    />
+                    <Form.Input
+                        fluid label="Date of Request"
+                        type="Date"
+                        name="requestDate"
+                        placeholder="Date"
+                        value={requestDetails.requestDate}
                         onChange={handleChange}
                     />
                     <Button type="submit" className="request_btn" color="black">

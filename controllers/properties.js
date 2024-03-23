@@ -21,7 +21,7 @@ const BUCKET_NAME = process.env.S3_BUCKET
 async function create(req, res) {
   //to find the property!
   console.log('====================================')
-  console.log(req.body, "< ---- req.body")
+  console.log(req.body, "< ---- req.body THISI IN PROPERTIES CONTROLLER")
   console.log('====================================')
   try {
       const user = await UserModel.findOne({userId: req.user._id})
