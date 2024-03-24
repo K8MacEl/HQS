@@ -9,7 +9,8 @@ import tokenService from "../../utils/tokenService";
 import RequestInspectionForm from "../../components/RequestInspectionForm/RequestInspectionForm";
 // import RequestInspectionForm from "./components/RequestInspectionForm/RequestInspectionForm";
 import {
-    Button
+    Button,
+    
 } from "semantic-ui-react";
 import requestService from "../../utils/requestService";
 
@@ -124,7 +125,6 @@ export default function PropertyShowPage() {
                         </div>
                     </div>
                 </section>
-
                 <div className="button_container">
                 <Button className="delete_button"action="submit" onClick={handleDelete} style={{
                     height: "8vh",
@@ -150,6 +150,10 @@ export default function PropertyShowPage() {
             <div className="request_date">REQUEST DATE:
             {requestDetails.requestDate}
             </div>
+            <Button className="inspection_btn">
+                <Link to="/newinspection">CREATE NEW INSPECTION</Link>
+            </Button>
+           
                 <section className="inspections_embedded">
                     INSPECTIONS EMBEDDED HERE! USE COMPONENTS!
                 </section>

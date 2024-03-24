@@ -66,6 +66,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 5rem;
+    margin-top: -10rem;
 }
 
 .inspections_embedded {
@@ -80,16 +81,21 @@
 .requested_inspections {
     display: flex;
     justify-content: center;
-    height: 3rem;
-    background-color: rgb( 255 196 56);
-    color: black;
+    height: 3.5rem;
+    background-color: black;
+    color: white;
 }
 .inspection_type, .requestor_name, .request_date{
-    font-size: x-large;
+    font-size: large;
     display: flex;
     justify-content: center;
-    background-color: red;
+    background-color: lightgrey;
     color: black;
     height: 3rem;
     padding-top: 1rem;
+    margin-bottom: 1rem;
+}
+.inspection_btn{
+    align-items: center;
+    height: 3rem;  
 }
