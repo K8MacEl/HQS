@@ -51,7 +51,7 @@ export default function IndexPage() {
                         <p className="textblock_one">HQS Inspectors Create a Profile that will track all of their inspections.</p>
                     </div>
                     <div className="section">
-                        <p className="textblock_two">HQSpec guides inspectors through the Inspection form and allows for photo uploads.</p>
+                        <p className="textblock_two">HQSpec guides inspectors through the Inspection form.</p>
                     </div>
                     <div className="section">
                         <p className="textblock_three">HQSpec populates the HUD Inspection Form PDF for the inspector to submit.</p>

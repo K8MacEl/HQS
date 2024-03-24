@@ -15,43 +15,56 @@ const options = [
     { key: 'r', text: 'Reinspection', value: 'reinspection' }
 ]
 
-export default function RequestInspectionForm({propertyId, submitRequest, requestDetails, setRequestDetails, user, loggedUser, handleLogout }) {
-  
+export default function RequestInspectionForm({ propertyId, submitRequest, user, loggedUser, handleLogout }) {
+
     const [error, setError] = useState('')
     const navigate = useNavigate();
+    const [requestDetails, setRequestDetails] = useState({
+        requestInspection: '',
+        requestorName: '',
 
+    })
+    console.log(requestDetails, "request details")
     function handleChange(e, target) {
-        if(target) {
+        if (target) {
             setRequestDetails({
                 ...requestDetails,
                 [target.name]: target.value,
-              });
-        } else {  
+            });
+        } else {
             setRequestDetails({
-            ...requestDetails,
-            [e.target.name]: e.target.value,
-          });
+                ...requestDetails,
+                [e.target.name]: e.target.value,
+            });
 
         }
 
-       
-      }
-      useEffect(() => {
+
+    }
+    async function handleSubmit(e) {
+        e.preventDefault();
+        try {
+            submitRequest(requestDetails)
+        } catch (err) {
+            console.log(err.message, " <- this comes from the throw in utils/signup");
+          
+        }
+    }
+    useEffect(() => {
         setRequestDetails({
-            // requestInspection: '',
-            // requestorName: '',
+
         });
     }, []);
 
-    
+
     return (
         <>
             <Grid className="request_inspection" textAlign="center"
-                autoComplete="off" style={{textAlign:"center"  }}>
+                autoComplete="off" style={{ textAlign: "center" }}>
                 <Form
                     autoComplete="off"
-                    onSubmit={submitRequest} className="request_form">
-                        <h2>REQUEST INSPECTION</h2>
+                    onSubmit={handleSubmit} className="request_form">
+                    <h2>REQUEST INSPECTION</h2>
                     <Form.Select
                         fluid label="Type of Inspection"
                         name="requestInspection"
@@ -60,21 +73,14 @@ export default function RequestInspectionForm({propertyId, submitRequest, reques
                         value={requestDetails.requestInspection}
                         onChange={handleChange}
                     />
-                    <Form.Input 
+                    <Form.Input
                         fluid label="Name of Requestor"
                         name="requestorName"
                         placeholder="Name of Requestor"
                         value={requestDetails.requestorName}
                         onChange={handleChange}
                     />
-                    <Form.Input
-                        fluid label="Date of Request"
-                        type="Date"
-                        name="requestDate"
-                        placeholder="Date"
-                        value={requestDetails.requestDate}
-                        onChange={handleChange}
-                    />
+
                     <Button type="submit" className="request_btn" color="black">
                         SUBMIT REQUEST
                     </Button>

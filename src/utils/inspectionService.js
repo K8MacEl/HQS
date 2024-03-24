@@ -1,11 +1,12 @@
 import tokenService from "./tokenService";
+import propertyService from "./propertyService";
 
 const BASE_URL = 'api/properties';
 
 async function handleAddInspection(propertyToSendToServer){
     console.log(propertyToSendToServer, "formData from addInspection form")
     try {
-        const response = await fetch('/api/properties', {
+        const response = await fetch('/api/properties/', {
             method: 'POST',
             body: JSON.stringify(propertyToSendToServer),
             headers: {

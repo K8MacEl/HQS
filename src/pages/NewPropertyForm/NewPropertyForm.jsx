@@ -90,7 +90,7 @@ export default function NewPropertyForm({setProperty}) {
                     required
                     />
                     <Form.Input
-                    name="state"
+                    name="stateProperty"
                     placeholder="State"
                     value={propertyDetails.stateProperty}
                     onChange={handleChange}
@@ -98,10 +98,11 @@ export default function NewPropertyForm({setProperty}) {
                     />
                     <Form.Input
                     name="zip"
-                    type="number"
+                    type="text"
                     placeholder="Zip Code"
                     value={propertyDetails.zip}
                     onChange={handleChange}
+                    maxLength={5}
                     required
                     />
                     <Form.Input
@@ -129,10 +130,14 @@ export default function NewPropertyForm({setProperty}) {
                     onChange={handleChange}
                     required
                     />
+                    <Link to="https://geocoding.geo.census.gov/geocoder/geographies/address?form">
+                        Click Here for Census Gecoder
+                    </Link>
                     <Form.Input
                     fluid label="Neighborhood Census Track"
                     name="censusTrack"
-                    type="number"
+                    type="text"
+                    maxLength={11}
                     placeholder="Census Track"
                     value={propertyDetails.censusTrack}
                     onChange={handleChange}

@@ -17,7 +17,7 @@ import {
     Grid,
     Segment
 } from "semantic-ui-react";
-
+import propertyService from "../../utils/propertyService";
 import inspectionService from "../../utils/inspectionService";
 import tokenService from "../../utils/tokenService"
 export default function NewInspectionForm() {
@@ -54,13 +54,6 @@ async function handleSubmit(e) {
 
 useEffect(() => {
     setInspectionDetails({
-        dateOfRequest: '',
-        dateOfLastRequest: '',
-        numOfChildren: '',
-        housingType: '',
-        numOfBeds: '',
-        numOfSleeping: '',
-        summaryOfDecision: ''
     });
 }, []);
 

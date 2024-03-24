@@ -17,21 +17,17 @@ import requestService from "../../utils/requestService";
 
 export default function PropertyShowPage() {
     // console.log("this is property--->", propertyToSendToServer)
-    const [property, setProperty] = useState({}); //this will be an array
+    const [property, setProperty] = useState(null); //this will be an array
     const [loading, setLoading] = useState(true)
     const { propertyId } = useParams();
     const [error, setError] = useState('');
-    const [requestDetails, setRequestDetails] = useState({
-        requestInspection: '',
-        requestorName: '',
-    })
 
-    async function submitRequest(e) {
-        e.preventDefault();
+
+    async function submitRequest(requestDetails) {
         try {
             const data = await requestService.createRequest(requestDetails, propertyId);
             console.log("this is data for creating request", data)
-
+            setProperty(data)
 
         } catch (err) {
             console.log(err.message, "<---this comes from the the throw in utils/create");
@@ -82,6 +78,7 @@ export default function PropertyShowPage() {
     useEffect(() => {
         getProperty()
     }, [])
+    if (!property)return <h1>loading</h1> 
 
     return (
         <>
@@ -151,19 +148,24 @@ export default function PropertyShowPage() {
                         DELETE PROPETY
                     </Button>
                 </div>
-                <h2>!!!-------REQUEST INSPECTION COMPONENT HERE BUT THROWS ERROR-----!!!</h2>
-                {/* <RequestInspectionForm></RequestInspectionForm> */}
+
+                <RequestInspectionForm submitRequest={submitRequest} />
             </div>
             <div className="requested_inspections">
                 <h2>REQUESTED INSPECTIONS:</h2>
+                <ul>
+                    {property.inspectionRequest.map((request) => (
+                        <li key={request._id}>
+                            {request.requestorName}
+                        </li>
+                    ))}
+                </ul>
             </div>
             <div className="inspection_type">TYPE:
             </div>
             <div className="requestor_name">REQUESTED BY:
             </div>
-            <div className="request_date">REQUEST DATE:
 
-            </div>
 
 
             <section className="inspections_embedded">

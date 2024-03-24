@@ -4,7 +4,7 @@ import NewPropertyForm from "../../pages/NewPropertyForm/NewPropertyForm";
 import "./Header.css"
 
 export default function PageHeader( {user, handleLogout}){
-  console.log(handleLogout)
+
     return (
        <>
        <div className="header_container">

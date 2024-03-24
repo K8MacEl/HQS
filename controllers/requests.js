@@ -21,12 +21,12 @@ async function createRequest(req, res) {
   console.log(req.body, "< ---- req.body THIS IS IN REQUESTS CONTROLLER")
   console.log('====================================')
   try {
-      const user = await PropertyModel.findOne({proertyId: req.user._id})
-      req.body.propertyUser = user._id
+      const property = await PropertyModel.findOne({propertyId: req.user._id})
+     
       //req.params.id comes from the http request from the projects show page from the routes/projects route
-      const propertyDoc = await PropertyModel.create(req.body);
-      console.log(propertyDoc)
-      res.json({propertyDoc})
+      property.inspectionRequest.push(req.body)
+      await property.save()
+      res.json(property)
 
   } catch (err) {
       console.log(err);
