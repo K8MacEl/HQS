@@ -138,17 +138,17 @@ export default function PropertyShowPage() {
                     DELETE PROPETY
                 </Button>
                 </div>                
-            <RequestInspectionForm propertyId={propertyId} submitRequest={submitRequest} setRequestDetails={setRequestDetails} requestDetails={requestDetails} />
+
            </div>
            <div className="requested_inspections">
             <h2>REQUESTED INSPECTIONS:</h2>
            </div>
-            <div className="inspection_type">TYPE: {requestDetails.requestInspection}
+            <div className="inspection_type">TYPE: 
             </div>
-            <div className="requestor_name">REQUESTED BY: {requestDetails.requestorName}
+            <div className="requestor_name">REQUESTED BY: 
             </div>
             <div className="request_date">REQUEST DATE:
-            {requestDetails.requestDate}
+            
             </div>
             <Button className="inspection_btn">
                 <Link to="/newinspection">CREATE NEW INSPECTION</Link>

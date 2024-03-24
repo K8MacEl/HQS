@@ -15,6 +15,7 @@ app.set('view engine', 'ejs')
 const userRouter = require("./routes/api/users")
 const propertiesRouter = require("./routes/api/properties")
 const requestsRouter = require("./routes/api/requests")
+const inspectionsRouter = require("./routes/api/inspections")
 // add in when the app is ready to be deployed
 // app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(logger("dev"));
@@ -31,7 +32,8 @@ app.use(require("./config/auth"));
 // api routes must be before the "catch all" route
 app.use("/api/users", userRouter);
 app.use("/api/properties", propertiesRouter);
-app.use("/api", requestsRouter);
+app.use("/api", requestsRouter); ///----------is this correct????
+app.use("/api", inspectionsRouter ); ///----------is this correct????
 
 // "catch all" route
 if(process.env.IS_PRODUCTION){

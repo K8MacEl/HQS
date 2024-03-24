@@ -38,16 +38,16 @@ const propertySchema = mongoose.Schema({
 );
 
 const inspectionSchema =mongoose.Schema({
-  status: String,
+ 
   dateOfRequest: Date,
   //embed inspector here ref:user
-  dateofLastRequest: Date,
+  dateOfLastRequest: Date,
   //embed PHA here
   numOfChildren: Number,
   housingType: String,
   numOfBeds: Number,
   numOfSleeping: Number,
-  summaryOffDecision: String,
+  summaryOfDecision: String,
 })
 
 const livingRoomSchema = mongoose.Schema ({

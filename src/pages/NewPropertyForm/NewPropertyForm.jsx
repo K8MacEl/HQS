@@ -41,7 +41,7 @@ export default function NewPropertyForm({setProperty}) {
         try {
             const data = await propertyService.create(propertyDetails);
             console.log("this is data", data)
-            setProperty(data.propertyDoc);
+            setProperty(data.propertyDoc);//
             //i beleive i need a function comparable to handleSignUpOrLogin here??
             navigate(`/${data.propertyDoc._id}`); ///change this later to a literal but for now home page
         } catch (err) {

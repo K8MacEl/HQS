@@ -36,6 +36,9 @@ export default function RequestInspectionForm({propertyId, submitRequest, reques
 
        
       }
+      useEffect(() => {
+        setRequestDetails();
+    }, []);
 
     
     return (

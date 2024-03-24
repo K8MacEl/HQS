@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const PropertyModel = require("../models/property");
 const UserModel = require("../models/user");
 
