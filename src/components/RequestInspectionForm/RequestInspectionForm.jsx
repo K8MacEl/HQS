@@ -20,7 +20,7 @@ export default function RequestInspectionForm({ propertyId, submitRequest, user,
     const [error, setError] = useState('')
     const navigate = useNavigate();
     const [requestDetails, setRequestDetails] = useState({
-        requestInspection: '',
+        inspectionType: '',
         requestorName: '',
 
     })
@@ -67,10 +67,10 @@ export default function RequestInspectionForm({ propertyId, submitRequest, user,
                     <h2>REQUEST INSPECTION</h2>
                     <Form.Select
                         fluid label="Type of Inspection"
-                        name="requestInspection"
+                        name="inspectionType"
                         options={options}
                         placeholder="Inspection Type"
-                        value={requestDetails.requestInspection}
+                        value={requestDetails.inspectionType}
                         onChange={handleChange}
                     />
                     <Form.Input

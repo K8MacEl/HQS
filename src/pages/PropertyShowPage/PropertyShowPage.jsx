@@ -78,7 +78,7 @@ export default function PropertyShowPage() {
     useEffect(() => {
         getProperty()
     }, [])
-    if (!property)return <h1>loading</h1> 
+    if (!property) return <h1>loading</h1>
 
     return (
         <>
@@ -153,18 +153,21 @@ export default function PropertyShowPage() {
             </div>
             <div className="requested_inspections">
                 <h2>REQUESTED INSPECTIONS:</h2>
-                <ul>
-                    {property.inspectionRequest.map((request) => (
-                        <li key={request._id}>
+
+                {property.inspectionRequest.map((request) => (
+                    <div>
+                        <div key={request._id}> REQUESTOR:
                             {request.requestorName}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <div className="inspection_type">TYPE:
-            </div>
-            <div className="requestor_name">REQUESTED BY:
-            </div>
+                        </div>
+
+                        <div key={request._id}> TYPE:
+                            {request.inspectionType}
+                        </div>
+                    </div>
+
+                ))}
+
+            </div >
 
 
 

@@ -80,11 +80,9 @@
 }
 
 .requested_inspections {
-    display: flex;
-    justify-content: center;
-    height: 3.5rem;
     background-color: black;
     color: white;
+    text-wrap: auto;
 }
 .inspection_type, .requestor_name, .request_date{
     font-size: large;
