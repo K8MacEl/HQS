@@ -36,7 +36,7 @@
     width: 100%;
     height: 70vh;
     margin: 0;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
  
 
 }
@@ -62,9 +62,10 @@
     align-items: center;
 }
 
-.button_container{
+.button_container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    padding-bottom: 5rem;
     margin-bottom: 5rem;
     margin-top: -10rem;
 }
@@ -94,8 +95,4 @@
     height: 3rem;
     padding-top: 1rem;
     margin-bottom: 1rem;
-}
-.inspection_btn{
-    align-items: center;
-    height: 3rem;  
 }

@@ -10,7 +10,7 @@ import RequestInspectionForm from "../../components/RequestInspectionForm/Reques
 // import RequestInspectionForm from "./components/RequestInspectionForm/RequestInspectionForm";
 import {
     Button,
-    
+
 } from "semantic-ui-react";
 import requestService from "../../utils/requestService";
 
@@ -25,14 +25,14 @@ export default function PropertyShowPage() {
         requestInspection: '',
         requestorName: '',
     })
-  
+
     async function submitRequest(e) {
         e.preventDefault();
         try {
             const data = await requestService.createRequest(requestDetails, propertyId);
             console.log("this is data for creating request", data)
-          
-         
+
+
         } catch (err) {
             console.log(err.message, "<---this comes from the the throw in utils/create");
             setError("Check your terminal for errors!!!");
@@ -71,21 +71,21 @@ export default function PropertyShowPage() {
         try {
             const data = await propertyService.deleteProperty(propertyId);
             console.log("this is data", data)
-            navigate(`/newproperty`); 
+            navigate(`/newproperty`);
         } catch (err) {
             console.log(err.message, " <- this comes from the throw in utils/signup");
             setError("Check Your Terminal for errors!!!!!!!!");
         }
     }
 
-   
+
     useEffect(() => {
         getProperty()
     }, [])
 
     return (
         <>
-        <Header></Header>
+            <Header></Header>
             <div className="property_body">
                 <img className="hqspec_logo" src="https://i.imgur.com/CKEt2Kqm.png" alt="" />
                 <header className="title">
@@ -125,40 +125,52 @@ export default function PropertyShowPage() {
                         </div>
                     </div>
                 </section>
+
                 <div className="button_container">
-                <Button className="delete_button"action="submit" onClick={handleDelete} style={{
-                    height: "8vh",
-                    width: "77vh",
-                    background: "red",
-                    color: "white",
-                    borderRadius: "10px",
-                    fontSize: "20px",
-                }}>
 
-                    DELETE PROPETY
-                </Button>
-                </div>                
+                    <Button className="inspection_btn" style={{
+                        height: "8vh",
+                        width: "60vh",
+                        background: "lightgrey",
+                        borderColor: "black",
+                        borderRadius: "10px",
+                        fontSize: "20px"
+                    }}>
+                        <Link to="/newinspection">CREATE NEW INSPECTION</Link>
+                    </Button>
 
-           </div>
-           <div className="requested_inspections">
-            <h2>REQUESTED INSPECTIONS:</h2>
-           </div>
-            <div className="inspection_type">TYPE: 
+                    <Button className="delete_button" action="submit" onClick={handleDelete} style={{
+                        height: "8vh",
+                        width: "60vh",
+                        background: "red",
+                        color: "white",
+                        borderRadius: "10px",
+                        fontSize: "20px",
+                    }}>
+
+                        DELETE PROPETY
+                    </Button>
+                </div>
+                <h2>!!!-------REQUEST INSPECTION COMPONENT HERE BUT THROWS ERROR-----!!!</h2>
+                {/* <RequestInspectionForm></RequestInspectionForm> */}
             </div>
-            <div className="requestor_name">REQUESTED BY: 
+            <div className="requested_inspections">
+                <h2>REQUESTED INSPECTIONS:</h2>
+            </div>
+            <div className="inspection_type">TYPE:
+            </div>
+            <div className="requestor_name">REQUESTED BY:
             </div>
             <div className="request_date">REQUEST DATE:
-            
+
             </div>
-            <Button className="inspection_btn">
-                <Link to="/newinspection">CREATE NEW INSPECTION</Link>
-            </Button>
-           
-                <section className="inspections_embedded">
-                    INSPECTIONS EMBEDDED HERE! USE COMPONENTS!
-                </section>
-                <Footer></Footer>
+
+
+            <section className="inspections_embedded">
+                INSPECTIONS EMBEDDED HERE! USE COMPONENTS!
+            </section>
+            <Footer></Footer>
         </>
-        )
+    )
 }
 
