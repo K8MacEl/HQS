@@ -11,6 +11,7 @@ import NewPropertyForm from "./pages/NewPropertyForm/NewPropertyForm";
 import PropertyShowPage from "./pages/PropertyShowPage/PropertyShowPage";
 import InspectionIndexPage from "./pages/InspectionIndexPage/InspectionIndexPage";
 import NewInspectionForm from "./pages/NewInspectionForm/NewInspectionForm";
+import RequestIndex from "./pages/RequestIndex/RequestIndex";
 // ANY component that is rendered by a route, should be stored in the 
 // pages folder. Every page is like an app component
 import userService from "./utils/userService";
@@ -60,6 +61,7 @@ if (!user) {
       <Route path="/pha" element={<PHAProfilePage user={user}/> } />
       <Route path="/newproperty" element={<NewPropertyForm setProperty={setProperty} />} />
       <Route path="/propertyindex" element={<PropertyIndexPage /> } />
+      <Route path="/requestindex" element={<RequestIndex /> } />
       <Route path="/inspectionindex" element={<InspectionIndexPage />} />
       <Route path="/newinspection" element={<NewInspectionForm />} />
       <Route path="/:propertyId" element={<PropertyShowPage />} />

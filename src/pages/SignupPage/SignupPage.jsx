@@ -1,5 +1,7 @@
 import { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import Footer from "../../components/Footer/Footer"
+import { Link } from "react-router-dom"
 import "../SignupPage/SignupPage.css";
 
 import {
@@ -100,6 +102,7 @@ export default function SignUpPage({ handleSignUpOrLogin }) {
 
 console.log(state, "this is state")
   return (
+    <>
     <Grid className="signUpPage" textAlign="center" style={{ height: "100vh" }} verticalAlign="middle" >
       <Grid.Column style={{ maxWidth: 650, backgroundColor: 'rgb(255, 196, 56)' }}>
         <h1>Sign Up</h1>
@@ -156,5 +159,7 @@ console.log(state, "this is state")
         </Form>
       </Grid.Column>
     </Grid>
+    <Footer></Footer>
+    </>
   );
 }

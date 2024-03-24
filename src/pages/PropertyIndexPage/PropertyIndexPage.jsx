@@ -3,6 +3,9 @@ import { token } from "morgan";
 import PropertyShowPage from "../PropertyShowPage/PropertyShowPage"
 import { useState, useEffect } from "react";
 import tokenService from "../../utils/tokenService";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+
 import "./PropertyIndexPage.css"
 import { Link } from "react-router-dom"
 
@@ -41,6 +44,7 @@ export default function PropertyIndexPage() {
 
     return (
         <>
+        <Header></Header>
             <div className="yellow_top_page">
                 <img className="hqspec_logo" src="https://i.imgur.com/CKEt2Kqm.png" alt="" />
                 <header className="title">
@@ -70,6 +74,7 @@ export default function PropertyIndexPage() {
                     )}
                 </div>
             </div>
+            <Footer></Footer>
         </>
     );
 }

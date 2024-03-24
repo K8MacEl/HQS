@@ -3,18 +3,13 @@ import { Link, useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import propertyService from "../../utils/propertyService";
-
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import tokenService from "../../utils/tokenService";
 import RequestInspectionForm from "../../components/RequestInspectionForm/RequestInspectionForm";
 // import RequestInspectionForm from "./components/RequestInspectionForm/RequestInspectionForm";
 import {
-    Button,
-    Form,
-    Grid,
-    Header,
-    Image,
-    Segment,
-    Dropdown,
+    Button
 } from "semantic-ui-react";
 import requestService from "../../utils/requestService";
 
@@ -89,6 +84,7 @@ export default function PropertyShowPage() {
 
     return (
         <>
+        <Header></Header>
             <div className="property_body">
                 <img className="hqspec_logo" src="https://i.imgur.com/CKEt2Kqm.png" alt="" />
                 <header className="title">
@@ -157,6 +153,7 @@ export default function PropertyShowPage() {
                 <section className="inspections_embedded">
                     INSPECTIONS EMBEDDED HERE! USE COMPONENTS!
                 </section>
+                <Footer></Footer>
         </>
         )
 }

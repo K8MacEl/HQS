@@ -6,10 +6,8 @@ import {
     Button,
     Form,
     Grid,
-    Header,
-    Image,
     Segment,
-    Dropdown,
+    Header,
 } from "semantic-ui-react";
 import propertyService from "../../utils/propertyService"
 
@@ -53,6 +51,8 @@ export default function NewPropertyForm({setProperty}) {
     }
 
     return (
+        <>
+      
         <Grid className="New_Property_Container" textAlign="center" style={{ height: "100vh" }} verticalAlign="middle" >
             <Grid.Column style={{ 
                         maxWidth: 650, 
@@ -146,5 +146,7 @@ export default function NewPropertyForm({setProperty}) {
                 </Form> 
             </Grid.Column>
         </Grid>
+                
+        </>
     );
 }

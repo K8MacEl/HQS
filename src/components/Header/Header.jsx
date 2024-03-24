@@ -10,9 +10,8 @@ export default function PageHeader( {loggedUser, handleLogout}){
             
             <Link to="/newproperty">NEW PROPERTY</Link>
             <Link to="/propertyindex">ALL PROPERTIES</Link>
-            <div>REQUESTED INSPECTIONS NOT WORKING</div>
-            <div>ALL INSPECTIONS NOT WORKING</div>
-            <div>MY PROFIL NOT WORKING</div>
+            <Link to="/requestindex>">INSPECTION REQUESTS</Link>
+            <Link to="/inspectionindex">ALL INSPECTIONS</Link>
             <div>LOG-OUT NOT WORKING</div>
        </div>
       </>

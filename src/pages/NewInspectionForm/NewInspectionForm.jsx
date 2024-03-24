@@ -6,9 +6,12 @@ import SecondaryRoom from "../../components/SecondaryRoom/SecondaryRoom"
 import Exterior from "../../components/Exterior/Exterior"
 import HeatingAndPlumbing from "../../components/HeatingAndPlumbing/HeatingAndPlumbing"
 import GeneralHealth from "../../components/GeneralHealth/GeneralHealth"
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 export default function NewInspectionForm() {
     return (
         <>
+        <Header></Header>
             <div> THIS IS NEW INSPECTION FORM</div>
 
             <div>COMPONENTS:</div>
@@ -47,10 +50,10 @@ export default function NewInspectionForm() {
             </div>
             <div>
                 <GeneralHealth>
-                    
+
                 </GeneralHealth>
             </div>
-
+        <Footer></Footer>
         </>
     )
 }

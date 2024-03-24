@@ -2,6 +2,8 @@
 import LoginPage from "../LoginPage/LoginPage";
 import SignUpPage from "../SignupPage/SignupPage";
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer/Footer"
+import { Header, Segment, Image, Icon } from "semantic-ui-react"
 import "./IndexPage.css";
 
 export default function IndexPage() {
@@ -56,6 +58,7 @@ export default function IndexPage() {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </>
     );
 }
