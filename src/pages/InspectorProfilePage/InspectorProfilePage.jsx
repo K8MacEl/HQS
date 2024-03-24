@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import './InspectorProfilePage.css'
 import tokenService from "../../utils/tokenService";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 
 export default function InspectorProfilePage({user}){
@@ -8,6 +10,7 @@ export default function InspectorProfilePage({user}){
 
 return (
     <>
+    <Header></Header>
         <div className="yellow_top_page">
             <img className="hqspec_logo" src="https://i.imgur.com/CKEt2Kqm.png" alt="" />
             <header className="title">
@@ -61,6 +64,7 @@ return (
                 </Link>
             </div>
         </div>
+        <Footer></Footer>
     </>
 )
 }

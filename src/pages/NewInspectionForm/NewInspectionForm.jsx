@@ -8,6 +8,7 @@ import HeatingAndPlumbing from "../../components/HeatingAndPlumbing/HeatingAndPl
 import GeneralHealth from "../../components/GeneralHealth/GeneralHealth"
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import PropertyShowPage from "../PropertyShowPage/PropertyShowPage"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import {

@@ -1,9 +1,10 @@
-import { Header, Segment, Image, Icon } from "semantic-ui-react";
+import { Header, Segment } from "semantic-ui-react";
 import { Link } from "react-router-dom"
 import NewPropertyForm from "../../pages/NewPropertyForm/NewPropertyForm";
 import "./Header.css"
 
-export default function PageHeader( {loggedUser, handleLogout}){
+export default function PageHeader( {user, handleLogout}){
+  console.log(handleLogout)
     return (
        <>
        <div className="header_container">
@@ -12,7 +13,9 @@ export default function PageHeader( {loggedUser, handleLogout}){
             <Link to="/propertyindex">ALL PROPERTIES</Link>
             <Link to="/requestindex">INSPECTION REQUESTS</Link>
             <Link to="/inspectionindex">ALL INSPECTIONS</Link>
-            <div>LOG-OUT NOT WORKING</div>
+            <Link to="/" onClick={handleLogout}>
+          LOGOUT
+        </Link>
        </div>
       </>
     );

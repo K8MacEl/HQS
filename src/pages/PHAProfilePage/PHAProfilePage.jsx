@@ -67,17 +67,6 @@ export default function PHAProfilePage({user, loggedUser, handleLogout}) {
                         </button>
                     </Link>
                 </div>
-                <div className="show_properties_button">
-                        <h2 style={{
-                            height: "8vh",
-                            width: "50vh",
-                            background: "rgb(255, 196, 56)",
-                            color: "black",
-                            margin: "10px",
-                            borderRadius: "10px",
-                            fontSize: "large"
-                        }}>MY PROPERTIES SHOW BELOW</h2>                 
-                </div>
             </div>
             <Footer></Footer>
         </>

@@ -33,9 +33,10 @@ function App() {
     navigate(`/${user.role}`);//<---just added this here but no go
   }
   function logout() {
-    console.log("happening");
+    console.log("logging out");
     userService.logout();
     setUser(null);
+    navigate("/");//redirects to home page after logout
   }
 if (!user) {
   return (
@@ -54,17 +55,17 @@ if (!user) {
 }
   return (
     <Routes>
-      <Route path="/" element={<IndexPage />} />
+      <Route path="/" element={<IndexPage user={user} handleLogout={logout} />} />
       <Route path="/login" element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
       <Route path="/signup" element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
-      <Route path="/inspector" element={<InspectorProfilePage user={user}/> } />
-      <Route path="/pha" element={<PHAProfilePage user={user}/> } />
-      <Route path="/newproperty" element={<NewPropertyForm setProperty={setProperty} />} />
-      <Route path="/propertyindex" element={<PropertyIndexPage /> } />
-      <Route path="/requestindex" element={<RequestIndex /> } />
-      <Route path="/inspectionindex" element={<InspectionIndexPage />} />
-      <Route path="/newinspection" element={<NewInspectionForm />} />
-      <Route path="/:propertyId" element={<PropertyShowPage />} />
+      <Route path="/inspector" element={<InspectorProfilePage user={user} handleLogout={logout}/> } />
+      <Route path="/pha" element={<PHAProfilePage user={user} handleLogout={logout}/> } />
+      <Route path="/newproperty" element={<NewPropertyForm setProperty={setProperty} handleLogout={logout} />} />
+      <Route path="/propertyindex" element={<PropertyIndexPage handleLogout={logout} /> } />
+      <Route path="/requestindex" element={<RequestIndex handleLogout={logout} /> } />
+      <Route path="/inspectionindex" element={<InspectionIndexPage handleLogout={logout}/>} />
+      <Route path="/newinspection" element={<NewInspectionForm handleLogout={logout}/>} />
+      <Route path="/:propertyId" element={<PropertyShowPage handleLogout={logout} />} />
     </Routes>
   );
 }
