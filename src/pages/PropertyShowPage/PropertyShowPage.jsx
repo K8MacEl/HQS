@@ -125,7 +125,7 @@ export default function PropertyShowPage() {
 
                 <div className="button_container">
 
-                    <Button className="inspection_btn" style={{
+                    {/* <Button className="inspection_btn" style={{
                         height: "8vh",
                         width: "60vh",
                         background: "lightgrey",
@@ -134,7 +134,7 @@ export default function PropertyShowPage() {
                         fontSize: "20px"
                     }}>
                         <Link to="/newinspection">CREATE NEW INSPECTION</Link>
-                    </Button>
+                    </Button> */}
 
                     <Button className="delete_button" action="submit" onClick={handleDelete} style={{
                         height: "8vh",
@@ -145,36 +145,40 @@ export default function PropertyShowPage() {
                         fontSize: "20px",
                     }}>
 
-                        DELETE PROPETY
+                        DELETE PROPERTY
                     </Button>
                 </div>
 
                 <RequestInspectionForm submitRequest={submitRequest} />
             </div>
-            <div className="requested_inspections">
-                <h2>REQUESTED INSPECTIONS:</h2>
-
+            <div className="title_request">
+                <h1>REQUESTED INSPECTIONS:</h1>
+            </div>
+            <div className="request_container">
                 {property.inspectionRequest.map((request) => (
-                    <div>
-                        <div key={request._id}> REQUESTOR:
+                    <div key={request._id} className="requestor_name"> 
+                        <div className="name_column">
                             {request.requestorName}
                         </div>
-
-                        <div key={request._id}> TYPE:
+                        <div className="type_column" key={request._id}> 
                             {request.inspectionType}
                         </div>
-                    </div>
-
+                        <div className="divider">
+                        <h3>~~~~~~~~~</h3>
+                        </div>
+            </div>
                 ))}
 
-            </div >
+        </div >
 
 
 
-            <section className="inspections_embedded">
+
+
+        {/* <section className="inspections_embedded">
                 INSPECTIONS EMBEDDED HERE! USE COMPONENTS!
-            </section>
-            <Footer></Footer>
+            </section> */}
+            < Footer ></Footer >
         </>
     )
 }

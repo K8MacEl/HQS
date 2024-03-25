@@ -1,8 +1,8 @@
-
-.property_body{
-    background-color:  rgb( 255 196 56);
+.property_body {
+    background-color: rgb(255 196 56);
 
 }
+
 .address_title {
     position: center;
     background-color: black;
@@ -15,6 +15,7 @@
     width: 505px;
     margin: auto;
 }
+
 .address {
     display: grid;
     justify-content: center;
@@ -26,39 +27,51 @@
     width: 505px;
     margin: auto;
 
-    }
+}
 
 .property_information {
     display: grid;
     justify-content: center;
     grid-template-columns: 250px 250px;
-    grid-template-rows: 50px 50px 50px 50px 50px; 
+    grid-template-rows: 50px 50px 50px 50px 50px;
     width: 100%;
     height: 70vh;
     margin: 0;
     padding-bottom: 1rem;
- 
+
 
 }
-.property_box{
+
+.property_box {
     display: grid;
     justify-content: center;
     grid-template-columns: 250px 250px;
-    grid-template-rows: 50px 50px 50px 50px 50px; 
+    grid-template-rows: 50px 50px 50px 50px 50px;
     gap: 5px 5px;
-    height: 100%; /* Full height */
+    height: 100%;
+    /* Full height */
     width: 100%;
-    margin: 0; /* Remove default margin */
+    margin: 0;
+    /* Remove default margin */
     border-radius: 10px;
     padding-left: 18rem;
 }
 
-.voucher_holder_title, .voucher_holder_input , .tenant_id_title,.tenant_id_input, .property_owner_title, .property_owner_input, .census_title,.census_input {
+.voucher_holder_title,
+.voucher_holder_input,
+.tenant_id_title,
+.tenant_id_input,
+.property_owner_title,
+.property_owner_input,
+.census_title,
+.census_input {
     font-size: larger;
     background-color: white;
     text-align: center;
-    display: flex; /* This turns on flexbox for this container */
-    justify-content: center; /* This spreads out the child elements evenly */
+    display: flex;
+    /* This turns on flexbox for this container */
+    justify-content: center;
+    /* This spreads out the child elements evenly */
     align-items: center;
 }
 
@@ -71,26 +84,39 @@
 }
 
 .inspections_embedded {
- background-color: black;
- color: white;
- font-size: x-large; 
- text-align: center;
- padding-top: 5rem;
- padding-bottom: 5rem;
-}
-
-.requested_inspections {
     background-color: black;
     color: white;
-    text-wrap: auto;
+    font-size: x-large;
+    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
-.inspection_type, .requestor_name, .request_date{
-    font-size: large;
+.title_request{
+    display: center;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.request_container {
     display: flex;
-    justify-content: center;
-    background-color: lightgrey;
-    color: black;
-    height: 3rem;
-    padding-top: 1rem;
-    margin-bottom: 1rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.name_column, .type_column, .divider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: x-large;
+}
+
+.divider{
+    font-size: xx-large;
+    color:  rgb(255 196 56);
 }
