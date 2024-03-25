@@ -48,14 +48,14 @@ export default function IndexPage() {
                 </nav>
                 <div className="section-container">
                     <div className="section">
-                        <p className="textblock_one">HQS Inspectors Create a Profile that will track all of their inspections.</p>
+                        <p className="textblock_one">PHAs create Property Profiles for their Housing Choic Voucher Programs.</p>
                     </div>
                     <div className="section">
-                        <p className="textblock_two">HQSpec guides inspectors through the Inspection form.</p>
+                        <p className="textblock_two">PHAs can submit requests for HQS Inspections</p>
                     </div>
-                    <div className="section">
+                    {/* <div className="section">
                         <p className="textblock_three">HQSpec populates the HUD Inspection Form PDF for the inspector to submit.</p>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <Footer></Footer>

@@ -9,8 +9,10 @@ import PHAProfilePage from "./pages/PHAProfilePage/PHAProfilePage";
 import InspectorProfilePage from "./pages/InspectorProfilePage/InspectorProfilePage";
 import NewPropertyForm from "./pages/NewPropertyForm/NewPropertyForm";
 import PropertyShowPage from "./pages/PropertyShowPage/PropertyShowPage";
-import InspectionIndexPage from "./pages/InspectionIndexPage/InspectionIndexPage";
-import NewInspectionForm from "./pages/NewInspectionForm/NewInspectionForm";
+//----Inpsection feature under construction for ICEBOX--------------/////
+// import InspectionIndexPage from "./pages/InspectionIndexPage/InspectionIndexPage";
+// import NewInspectionForm from "./pages/NewInspectionForm/NewInspectionForm";
+
 import RequestIndex from "./pages/RequestIndex/RequestIndex";
 // ANY component that is rendered by a route, should be stored in the 
 // pages folder. Every page is like an app component
@@ -63,8 +65,9 @@ if (!user) {
       <Route path="/newproperty" element={<NewPropertyForm setProperty={setProperty} handleLogout={logout} />} />
       <Route path="/propertyindex" element={<PropertyIndexPage handleLogout={logout} /> } />
       <Route path="/requestindex" element={<RequestIndex handleLogout={logout} /> } />
-      <Route path="/inspectionindex" element={<InspectionIndexPage handleLogout={logout}/>} />
-      <Route path="/newinspection" element={<NewInspectionForm handleLogout={logout}/>} />
+      {/* --------ICEBOXED-------- */}
+      {/* <Route path="/inspectionindex" element={<InspectionIndexPage handleLogout={logout}/>} />
+      <Route path="/newinspection" element={<NewInspectionForm handleLogout={logout}/>} /> */}
       <Route path="/:propertyId" element={<PropertyShowPage handleLogout={logout} />} />
     </Routes>
   );

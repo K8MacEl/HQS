@@ -47,7 +47,7 @@ return (
             </section >
             <br></br>
         </div >
-        <div className="New_Inspections_Nav">
+        {/* <div className="New_Inspections_Nav">
             <div className="show_inspection_button">
                 <Link to="/inspectionindex">
                     <button style={{
@@ -62,8 +62,8 @@ return (
                         VIEW INSPECTIONS
                     </button>
                 </Link>
-            </div>
-        </div>
+            </div> */}
+        {/* </div> */}
         <Footer></Footer>
     </>
 )

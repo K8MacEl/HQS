@@ -11,8 +11,8 @@ export default function PageHeader( {user, handleLogout}){
             
             <Link to="/newproperty">NEW PROPERTY</Link>
             <Link to="/propertyindex">ALL PROPERTIES</Link>
-            <Link to="/requestindex">INSPECTION REQUESTS</Link>
-            <Link to="/inspectionindex">ALL INSPECTIONS</Link>
+            {/* <Link to="/requestindex">INSPECTION REQUESTS</Link>
+            <Link to="/inspectionindex">ALL INSPECTIONS</Link> */}
             <Link to="/" onClick={handleLogout}>
           LOGOUT
         </Link>
