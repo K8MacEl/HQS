@@ -2,12 +2,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import "../NewPropertyForm/NewPropertyForm.css";
+import Header from "../../components/Header/Header"
+import Footer from "../../components/Footer/Footer"
 import {
     Button,
     Form,
     Grid,
     Segment,
-    Header,
 } from "semantic-ui-react";
 import propertyService from "../../utils/propertyService"
 
@@ -52,7 +53,7 @@ export default function NewPropertyForm({setProperty}) {
 
     return (
         <>
-      
+        <Header/>
         <Grid className="New_Property_Container" textAlign="center" style={{ height: "100vh" }} verticalAlign="middle" >
             <Grid.Column style={{ 
                         maxWidth: 650, 
@@ -151,7 +152,7 @@ export default function NewPropertyForm({setProperty}) {
                 </Form> 
             </Grid.Column>
         </Grid>
-                
+                <Footer/>
         </>
     );
 }
