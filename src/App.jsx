@@ -1,4 +1,4 @@
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, Link, useNavigate, Navigate } from "react-router-dom";
 import { useState } from 'react'
 import "./App.css";
 
@@ -17,7 +17,7 @@ import RequestIndex from "./pages/RequestIndex/RequestIndex";
 // ANY component that is rendered by a route, should be stored in the 
 // pages folder. Every page is like an app component
 import userService from "./utils/userService";
-import { useNavigate } from 'react-router-dom'
+
 import propertyService from "./utils/propertyService";
 import PropertyIndexPage from "./pages/PropertyIndexPage/PropertyIndexPage";
 
