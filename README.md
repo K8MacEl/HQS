@@ -9,7 +9,7 @@ HQSpec is a web based application that improves efficiencies with the process of
 
 
 ## Getting Started
-----DEPLOYMENT LINK HERE---
+#### TO USE THE WEB APP: https://hqspec.onrender.com
 At sign in Users are to pick a role of either PHA or Inspector, from there when the User logs in they will be directed to either the PHA or Inspector profile page. The PHA will be able to create new properties from there whereas the Inspector views properties and requests.
 
 <a href="https://imgur.com/r9h6Vnh"><img src="https://i.imgur.com/r9h6Vnhl.png" title="source: imgur.com" /></a>
