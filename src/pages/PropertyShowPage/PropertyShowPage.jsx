@@ -158,16 +158,13 @@ export default function PropertyShowPage() {
                 {property.inspectionRequest.map((request) => (
                     <div key={request._id} className="requestor_name"> 
                         <div className="type_column" key={request._id}> 
-                            {request.inspectionType}
+                         <strong> {request.inspectionType} </strong> 
                         </div>
                         <div className="info_column">
                             {request.requestInfo}
                         </div>
-                        <div className="info_column">
-                            {request.requestDate}
-                        </div>
                         <div className="divider">
-                        <h3>~~~~~~~~~</h3>
+                        <h3>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h3>
                         </div>
             </div>
                 ))}
