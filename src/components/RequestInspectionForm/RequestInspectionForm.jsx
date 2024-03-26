@@ -21,7 +21,7 @@ export default function RequestInspectionForm({ property, propertyId, submitRequ
     const navigate = useNavigate();
     const [requestDetails, setRequestDetails] = useState({
         inspectionType: '',
-        requestorName: '',
+        requestInfo: '',
 
     })
     console.log(requestDetails, "request details")
@@ -47,7 +47,7 @@ export default function RequestInspectionForm({ property, propertyId, submitRequ
             submitRequest(requestDetails)
         } catch (err) {
             console.log(err.message, " <- this comes from the throw in utils/signup");
-          
+
         }
     }
     useEffect(() => {
@@ -74,10 +74,19 @@ export default function RequestInspectionForm({ property, propertyId, submitRequ
                         onChange={handleChange}
                     />
                     <Form.Input
-                        fluid label="Name of Requestor"
-                        name="requestorName"
-                        placeholder="Name of Requestor"
-                        value={requestDetails.requestorName}
+                        fluid label="Details of Request (ie: scheduling details and contact information"
+                        name="requestInfo"
+                        placeholder="Details of Request"
+                        value={requestDetails.requestInfo}
+                        onChange={handleChange}
+                    />
+
+                    <Form.Input
+                        fluid label="Date of Request"
+                        type= "date"
+                        name="requestDate"
+                        placeholder="Date of Request"
+                        value={requestDetails.requestDate}
                         onChange={handleChange}
                     />
 

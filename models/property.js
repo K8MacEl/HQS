@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const requestSchema = mongoose.Schema({
   inspectionType: String,
   requestorId: { type: mongoose.Schema.Types.ObjectId, ref: "User"},
-  requestorName: String,
-  inspectorId: { type: mongoose.Schema.Types.ObjectId, ref: "User"},
+  requestInfo: String,
+  requestDate: Date,
 },
   {
     timestamps: true,
