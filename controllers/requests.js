@@ -21,7 +21,11 @@ async function createRequest(req, res) {
   console.log(req.body, "< ---- req.body THIS IS IN REQUESTS CONTROLLER")
   console.log('====================================')
   try {
-      const property = await PropertyModel.findOne({propertyId: req.user._id})
+      const property = await PropertyModel.findById(req.params.id)
+
+      if(!property){
+        return res.status(404).json({ error: "PROPERTY NOT FOUND!"});
+      }
      
       //req.params.id comes from the http request from the projects show page from the routes/projects route
       property.inspectionRequest.push(req.body)

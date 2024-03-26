@@ -16,7 +16,7 @@ At sign in Users are to pick a role of either PHA or Inspector, from there when 
 
 
 ## Technologies Used
-This is a full stack MERN project with MongoDB, Express, React, and Node.js as well as AWS for logins. Additionally, Semantic was used for styling the input forms.
+This is a full stack MERN project with MongoDB, Express, React, and Node.js as well as AWS for logins. Additionally, Semantic IU React as well as CSS was used for styling the input forms.
 
 
 ### This relationship of resources is the following:

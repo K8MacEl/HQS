@@ -15,7 +15,7 @@ const options = [
     { key: 'r', text: 'Reinspection', value: 'reinspection' }
 ]
 
-export default function RequestInspectionForm({ propertyId, submitRequest, user, loggedUser, handleLogout }) {
+export default function RequestInspectionForm({ property, propertyId, submitRequest, user, loggedUser, handleLogout }) {
 
     const [error, setError] = useState('')
     const navigate = useNavigate();
