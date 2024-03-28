@@ -28,7 +28,7 @@ function App() {
   const [user, setUser] = useState(userService.getUser())
   const [property, setProperty] = useState(propertyService.getProperty())
   const navigate = useNavigate()
-  function handleSignUpOrLogin(){
+  function handleSignUpOrLogin() {
     // we call this function after userService.login(), or userService.signup()
     // in order to get the token sent back from express and store the decoded token in the state
     setUser(userService.getUser())
@@ -40,10 +40,12 @@ function App() {
     setUser(null);
     navigate("/");//redirects to home page after logout
   }
-if (!user) {
-  return (
-    <Routes>
-         <Route
+  if (!user) {
+    return (
+      <Routes>
+        <Route path="/" element={<IndexPage user={user} handleLogout={logout} />} />
+
+        <Route
           path="/login"
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
         />
@@ -52,19 +54,19 @@ if (!user) {
           element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin} />}
         />
         <Route path="*" element={<Navigate to="/login" />} />
-    </Routes>
-  );
-}
+      </Routes>
+    );
+  }
   return (
     <Routes>
       <Route path="/" element={<IndexPage user={user} handleLogout={logout} />} />
-      <Route path="/login" element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
-      <Route path="/signup" element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
-      <Route path="/inspector" element={<InspectorProfilePage user={user} handleLogout={logout}/> } />
-      <Route path="/pha" element={<PHAProfilePage user={user} handleLogout={logout}/> } />
+      <Route path="/login" element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />} />
+      <Route path="/signup" element={<SignUpPage handleSignUpOrLogin={handleSignUpOrLogin} />} />
+      <Route path="/inspector" element={<InspectorProfilePage user={user} handleLogout={logout} />} />
+      <Route path="/pha" element={<PHAProfilePage user={user} handleLogout={logout} />} />
       <Route path="/newproperty" element={<NewPropertyForm setProperty={setProperty} handleLogout={logout} />} />
-      <Route path="/propertyindex" element={<PropertyIndexPage handleLogout={logout} /> } />
-      <Route path="/requestindex" element={<RequestIndex handleLogout={logout} /> } />
+      <Route path="/propertyindex" element={<PropertyIndexPage handleLogout={logout} />} />
+      <Route path="/requestindex" element={<RequestIndex handleLogout={logout} />} />
       {/* --------ICEBOXED-------- */}
       {/* <Route path="/inspectionindex" element={<InspectionIndexPage handleLogout={logout}/>} />
       <Route path="/newinspection" element={<NewInspectionForm handleLogout={logout}/>} /> */}
