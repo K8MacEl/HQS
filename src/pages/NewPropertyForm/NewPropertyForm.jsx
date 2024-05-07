@@ -54,6 +54,7 @@ export default function NewPropertyForm({setProperty}) {
     return (
         <>
         <Header/>
+        <br></br>
         <Grid className="New_Property_Container" textAlign="center" style={{ height: "100vh" }} verticalAlign="middle" >
             <Grid.Column style={{ 
                         maxWidth: 650, 
@@ -152,6 +153,8 @@ export default function NewPropertyForm({setProperty}) {
                 </Form> 
             </Grid.Column>
         </Grid>
+        <br></br>
+        <br></br>
                 <Footer/>
         </>
     );
