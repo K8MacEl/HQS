@@ -39,7 +39,7 @@ export default function PropertyIndexPage() {
       }, []);
 
       if (loading) {
-        return <div>Loading properties...</div>
+        return <div>Hamsters working hard...loading properties...</div>
       }
 
     return (

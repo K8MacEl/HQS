@@ -78,7 +78,7 @@ export default function PropertyShowPage() {
     useEffect(() => {
         getProperty()
     }, [])
-    if (!property) return <h1>loading</h1>
+    if (!property) return <h1>Shovelling coal into the server...loading</h1>
 
     return (
         <>
